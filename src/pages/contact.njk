@@ -20,7 +20,7 @@ bodyClass: contact
       <p class="hp"><label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
       <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
       <div class="field-row">
-        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required pattern="^\D*(\d\D*){10,}$" title="Include your full 10-digit phone number"></div>
         <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       </div>
       <div class="field-row">
@@ -39,7 +39,7 @@ bodyClass: contact
       </div>
       <div class="field"><label for="f-desc">What’s going on with the tree?</label>
         <textarea id="f-desc" name="description" rows="5" required placeholder="Type of tree if you know it, how close it is to the house, fences or lines nearby…"></textarea></div>
-      <div class="field"><label for="f-photo">Photo (optional, but it helps)</label><input id="f-photo" name="photo" type="file" accept="image/*"></div>
+      <div class="field"><label for="f-photo">Photo (optional, but it helps)</label><input id="f-photo" name="photo" type="file" accept="image/*"><small class="opt">One image, up to 8 MB.</small></div>
       <div class="field-row">
         <div class="field"><label for="f-time">Best time to reach you <span class="opt">(optional)</span></label><input id="f-time" name="contact_time"></div>
         <div class="field"><label for="f-heard">How did you hear about us? <span class="opt">(optional)</span></label><input id="f-heard" name="heard_about"></div>
@@ -57,19 +57,37 @@ bodyClass: contact
   </div>
 </section>
 <script>
-// Submit in place so a failed send shows a clear message instead of a dead page.
-// Without JS the form still posts normally to /thanks/.
+// Sends the request to the ops app (Vertic leads) and to Netlify Forms as a
+// backup copy. Succeeds if either lands; only shows the error if both fail.
+// Without JS the form still posts normally to Netlify and /thanks/.
 (function () {
+  var ENDPOINT = {{ site.leadEndpoint | json | safe }};
+  var MAX = 8 * 1024 * 1024;
   var form = document.querySelector("form.estimate");
   var err = form.querySelector(".form-error");
+  var photo = form.querySelector("#f-photo");
+  photo.addEventListener("change", function () {
+    var f = photo.files[0];
+    photo.setCustomValidity(f && f.size > MAX ? "That photo is over 8 MB — try a smaller one, or send it by text." : "");
+  });
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    if (!form.reportValidity()) return;
     err.hidden = true;
     var btn = form.querySelector("button[type=submit]");
     btn.disabled = true; btn.textContent = "Sending…";
-    fetch("/", { method: "POST", body: new FormData(form) })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); window.location.href = "/thanks/"; })
-      .catch(function () { err.hidden = false; btn.disabled = false; btn.textContent = "Request Free Estimate"; });
+    var data = new FormData(form);
+    var ok = function (r) { if (!r.ok) throw new Error(r.status); return true; };
+    Promise.allSettled([
+      fetch(ENDPOINT, { method: "POST", body: data }).then(ok),
+      fetch("/", { method: "POST", body: data }).then(ok)
+    ]).then(function (results) {
+      if (results.some(function (r) { return r.status === "fulfilled"; })) {
+        window.location.href = "/thanks/";
+      } else {
+        err.hidden = false; btn.disabled = false; btn.textContent = "Request Free Estimate";
+      }
+    });
   });
 })();
 </script>

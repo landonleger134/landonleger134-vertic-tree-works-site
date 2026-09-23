@@ -16,6 +16,8 @@ module.exports = {
   url: "https://vertictree.com",
   phone: "(225) 418-2720",
   email: "info@vertictree.com",
+  // Estimate form → ops app (Supabase edge function). Netlify Forms keeps a backup copy.
+  leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   owners: ["Landon Leger", "Cole Grantham"],
 
   // null = "Call or text for availability." Never write 24/7 here unless
