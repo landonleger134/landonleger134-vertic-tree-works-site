@@ -20,8 +20,10 @@ module.exports = {
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   owners: ["Landon Leger", "Cole Grantham"],
 
-  // null = "Call or text for availability." Never write 24/7 here unless
-  // someone really answers after hours.
+  // Landon confirmed 24/7 (2026-09-23). Only keep this true while someone
+  // really answers after hours — the claim audit allows "24/7" only when it is.
+  open247: true,
+  // Regular hours text, used only when open247 is false. null = "Call or text for availability."
   hours: null,
 
   // Insurance dollar amounts — shown only when filled.
@@ -35,7 +37,7 @@ module.exports = {
 
   // Land clearing page exists but stays out of nav, the services grid, and
   // the sitemap (and is noindexed) until this is true.
-  landClearingLive: false,
+  landClearingLive: true,
 
   // Only list gear that's actually ready. Uncomment as it arrives.
   equipment: [
@@ -43,9 +45,9 @@ module.exports = {
     "Aerial lifts for reaching limbs where the truck can’t go",
     "Climbing and rigging gear for tight yards and controlled lowering",
     "Professional saw lineup, up to a large-bar saw for big oak work",
+    "Chipper for on-site processing",
+    "Dump trailer for haul-off",
     "Skid steer for moving wood and debris",
-    // "Chipper for on-site processing",
-    // "Dump trailer for haul-off",
   ],
 
   parishes: "East Baton Rouge, Ascension & Livingston Parishes",

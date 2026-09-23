@@ -21,7 +21,7 @@ const rules = [
   site.stage && [/license\s*#|arborist\s*#/i, "license number shown in STAGE"],
   [/certified arborist/i, "certification claim (not held)"],
   [/\bISA\b/, "ISA credential claim (not held)"],
-  [/24\s*\/\s*7|24-7|twenty-four/i, "24/7 claim"],
+  !site.open247 && [/24\s*\/\s*7|24-7|twenty-four/i, "24/7 claim while site.open247 is false"],
   [/[\w.+-]+@strata-exterior\.com/i, "Strata email on the Vertic site"],
   [/★|☆|\b\d(\.\d)?\s*(star|stars)\b|\b\d+\+?\s*(google\s*)?reviews\b/i, "rating / review-count claim"],
   [/years in business|in business since|since (19|20)\d\d|\d+\+?\s*years of experience/i, "years-in-business claim"],

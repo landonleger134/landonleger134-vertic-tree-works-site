@@ -14,7 +14,7 @@ permalink: "/{{ s.slug }}/"
     {% for p in s.intro %}<p class="lede">{{ p }}</p>{% endfor %}
     {% if s.emergency %}
     <a class="btn btn--call btn--huge" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
-    <p class="pagehead__hours">{{ answers.hours }} We prioritize hazards when we can respond.</p>
+    <p class="pagehead__hours">{{ answers.hours }} {% if site.open247 %}Hazards come first.{% else %}We prioritize hazards when we can respond.{% endif %}</p>
     <p class="pagehead__secondary">Situation stable? <a href="/contact/">Send photos through the estimate form</a>.</p>
     {% else %}
     <div class="actions">

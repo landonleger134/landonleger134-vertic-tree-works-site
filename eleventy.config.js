@@ -31,6 +31,13 @@ module.exports = function (eleventyConfig) {
         "East Baton Rouge Parish, LA", "Ascension Parish, LA", "Livingston Parish, LA"],
       founder: site.owners.map((name) => ({ "@type": "Person", name })),
     };
+    if (site.open247) {
+      biz.openingHoursSpecification = [{
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "00:00", closes: "23:59",
+      }];
+    }
     if (license.credential) biz.hasCredential = license.credential;
     return ld(biz);
   });

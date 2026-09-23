@@ -1,6 +1,8 @@
 // Service page content. Copy adapted from the marketing pack (05-service-pages-copy.md).
 // Changes from the pack: no bucket-truck claims (not owned yet), Strata mentioned
 // only on About + FAQ, hours/insurance/email pulled from site.js.
+const site = require("./site.js");
+
 module.exports = [
   {
     slug: "tree-removal",
@@ -116,7 +118,7 @@ module.exports = [
     ],
     trustTail: "Package pricing available with removal.",
     whatWeDo: [
-      "Stump grinding after our tree removals (same day or follow-up)",
+      "Stump grinding after our tree removals — usually the same day",
       "Standalone stump grinding — stumps from other jobs welcome, we still need to see access",
       "Surface roots in the grind zone when discussed in the quote",
       "Grindings left as backfill or hauled off — your call on the estimate",
@@ -136,7 +138,7 @@ module.exports = [
     ],
     faq: [
       ["How deep do you grind?", "Typically several inches below grade — enough for grass or shallow planting. Need deeper for a slab or driveway? Tell us on the visit."],
-      ["Can you grind the same day as removal?", "Often, if access and schedule allow. Sometimes we come back with the grinder. The quote will say which."],
+      ["Can you grind the same day as removal?", "Usually, yes. Once in a while access or scheduling pushes it to a follow-up visit — the quote will say which."],
       ["Do grindings kill the grass?", "Fresh chips aren’t good topsoil. We can leave them for you to use as mulch elsewhere, or haul them. Reseed or sod after the spot settles."],
     ],
     ctaHeading: "Add grinding to your removal — or book stumps alone.",
@@ -155,7 +157,7 @@ module.exports = [
     intro: [
       "Tree on the house. Driveway blocked. A limb hanging over the kids’ play area after a storm. Call us. We’ll tell you what we can do and how fast we can get there.",
     ],
-    trustTail: "Hazards come first when we can respond.",
+    trustTail: site.open247 ? "Open 24/7. Hazards come first." : "Hazards come first when we can respond.",
     whatWeDo: [
       "Trees or large limbs on houses, garages, and sheds",
       "Blocked driveways, sidewalks, and access",

@@ -16,7 +16,7 @@ const faq = [
   ["What about property lines and neighbor trees?", "We only cut what you’re authorized to cut. If the tree is on the line or the neighbor’s side, get agreement first. We’ll help you think it through on the visit."],
   ["How do payments work?", answers.payment],
   ["Do you top trees or crepe myrtles?", "No. Topping creates weak growth and long-term risk. We prune for structure and clearance. Crepe myrtles get proper reduction and shaping — not “crepe murder.”"],
-  ["Can you grind the stump the same day?", "Often, if the grinder is available and access allows. Sometimes we come back. Same-day or follow-up will be on the quote."],
+  ["Can you grind the stump the same day?", "Usually, yes. Once in a while access or scheduling pushes it to a follow-up visit — same-day or follow-up will be on the quote."],
   ["What’s the difference between Vertic and Strata Exterior?", `Vertic Tree Works is tree work — trimming, removal, stumps, storm. Strata Exterior (strata-exterior.com) is our sister company for fencing and exterior work. Different websites and contact info — for tree work, use ${tel} or ${site.email}.`],
   ["Do you do commercial tree work?", "Residential is our focus. Light commercial — small retail sites, churches, HOA common areas — we’ll quote case by case."],
 ];
