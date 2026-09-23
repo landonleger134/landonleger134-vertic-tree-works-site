@@ -51,6 +51,18 @@ if (!site.landClearingLive && /land-clearing/.test(fs.readFileSync(path.join(OUT
   hits.push("sitemap.xml: lists /land-clearing/ while landClearingLive is false");
 }
 
+// CSS sanity: an unbalanced brace silently drops the next rule in every browser.
+{
+  const css = fs.readFileSync(path.join(OUT, "assets", "site.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+  let depth = 0, line = 1;
+  for (const ch of css) {
+    if (ch === "\n") line++;
+    if (ch === "{") depth++;
+    if (ch === "}" && --depth < 0) { hits.push(`assets/site.css: unmatched "}" near line ${line}`); break; }
+  }
+  if (depth > 0) hits.push(`assets/site.css: ${depth} unclosed "{"`);
+}
+
 if (hits.length) {
   console.error(`\nCLAIM AUDIT FAILED — ${hits.length} hit(s):\n  ` + hits.join("\n  ") + "\n");
   process.exit(1);

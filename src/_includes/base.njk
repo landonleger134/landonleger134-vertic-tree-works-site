@@ -11,11 +11,15 @@
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ page.url | absUrl }}">
-<meta name="theme-color" content="#1c3a2b">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#1f272a">
+<meta property="og:image" content="{{ '/assets/brand/og.png' | absUrl }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
 {% include "schema.njk" %}
 </head>
@@ -23,7 +27,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="masthead__row wrap">
-    <a class="wordmark" href="/" aria-label="Vertic Tree Works home">Vertic<span>Tree Works</span></a>
+    <a class="logo" href="/"><picture><source media="(max-width:560px)" srcset="/assets/brand/mark.png" width="56" height="40"><img src="/assets/brand/logo-lockup.png" alt="Vertic Tree Works" width="212" height="46"></picture></a>
     <nav class="nav" aria-label="Main">
       <a href="/services/"{% if page.url == "/services/" %} aria-current="page"{% endif %}>Services</a>
       <a href="/emergency-storm/"{% if page.url == "/emergency-storm/" %} aria-current="page"{% endif %}>Storm &amp; emergency</a>
@@ -62,7 +66,7 @@
 <footer class="footer">
   <div class="wrap footer__grid">
     <div>
-      <p class="wordmark wordmark--footer">Vertic<span>Tree Works</span></p>
+      <img class="footer__logo" src="/assets/brand/logo-stacked.png" alt="Vertic Tree Works" width="150" height="124" loading="lazy">
       <p><a class="footer__phone" href="{{ site.phone | tel }}">{{ site.phone }}</a><br>
       <a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
       {{ site.hours or "Call or text for availability." }}</p>
