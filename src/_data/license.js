@@ -15,8 +15,8 @@ module.exports = {
   areaTrust: (place) =>
     pick(`Fully insured · Owner-operated · Serving ${place}`, `${L} · Fully insured · Serving ${place}`),
   metaDescriptionHome: pick(
-    "Owner-operated tree trimming, removal & stump grinding in Baton Rouge, Prairieville, Denham Springs & nearby. Free estimates — call (225) 907-9013.",
-    "Owner-operated tree trimming, removal & stump grinding in Greater Baton Rouge. Louisiana licensed arborist · Fully insured. Free estimates: (225) 907-9013."
+    "Owner-operated tree trimming, removal & stump grinding in Baton Rouge, Prairieville, Denham Springs & nearby. Free estimates — call (225) 418-2720.",
+    "Owner-operated tree trimming, removal & stump grinding in Greater Baton Rouge. Louisiana licensed arborist · Fully insured. Free estimates: (225) 418-2720."
   ),
   faqQuestion: "Are you licensed?",
   faqAnswer: pick(

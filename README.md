@@ -29,7 +29,7 @@ Commit and push. That one change updates the trust bars, the About, FAQ, and Ins
 - a Strata email address
 - star ratings, review counts, years-in-business
 - a raw `[PLACEHOLDER]` token, or `null`/`undefined` in output
-- a phone link other than (225) 907-9013, or an email link other than info@vertictree.com
+- a phone link other than (225) 418-2720, or an email link other than info@vertictree.com
 - a bucket truck or chipper mentioned while it isn't listed in `site.equipment`
 - any link to `/land-clearing/` while `landClearingLive` is `false`
 

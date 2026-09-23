@@ -4,7 +4,7 @@
 module.exports = [
   {
     slug: "baton-rouge", city: "Baton Rouge", parish: "East Baton Rouge",
-    description: "Tree removal, trimming, stump grinding & storm cleanup in Baton Rouge — Mid City, Shenandoah, the Perkins corridor & more. Free estimates: (225) 907-9013.",
+    description: "Tree removal, trimming, stump grinding & storm cleanup in Baton Rouge — Mid City, Shenandoah, the Perkins corridor & more. Free estimates: (225) 418-2720.",
     intro: [
       "Vertic Tree Works handles tree removal, trimming, stump grinding, and storm cleanup across Baton Rouge. From tight lots in Mid City and the Garden District to larger yards in Shenandoah, Broadmoor, and along the Perkins and Bluebonnet corridors — we size the job to the access you actually have.",
       "South Louisiana storms and heavy hardwood canopies don’t wait. If a live oak or water oak is leaning toward the roof, or loblolly pines dropped limbs after a front, call us. You’ll get a clear scope, a written estimate, and a crew that cleans up.",
@@ -22,7 +22,7 @@ module.exports = [
   },
   {
     slug: "prairieville", city: "Prairieville", parish: "Ascension",
-    description: "Tree removal, trimming, stump grinding & storm cleanup in Prairieville and nearby Ascension communities. Free estimates: (225) 907-9013.",
+    description: "Tree removal, trimming, stump grinding & storm cleanup in Prairieville and nearby Ascension communities. Free estimates: (225) 418-2720.",
     intro: [
       "Looking for tree service in Prairieville? Vertic Tree Works removes and trims trees across Ascension Parish neighborhoods — around Dutchtown, Oak Grove, and the Bayou Manchac side of the parish. Bigger suburban lots are common here, which usually means better equipment access than Mid City — but tall pines and fence-line oaks still need a plan.",
       "Whether it’s a dead pine over the driveway, storm damage after a Gulf system, or a trim before hurricane season, we’ll walk the property and give you a straight number.",
@@ -40,7 +40,7 @@ module.exports = [
   },
   {
     slug: "denham-springs", city: "Denham Springs", parish: "Livingston",
-    description: "Tree removal, trimming, stump grinding & storm help in Denham Springs and Livingston Parish. Free estimates: (225) 907-9013.",
+    description: "Tree removal, trimming, stump grinding & storm help in Denham Springs and Livingston Parish. Free estimates: (225) 418-2720.",
     intro: [
       "Vertic Tree Works serves Denham Springs with residential tree removal, trimming, stump grinding, and storm response. Livingston Parish yards see real wind and rain — and plenty of pines that fail at the worst time. From in-town lots off Range Avenue and the older part of Denham out toward Walker and Watson, we quote what we can reach safely.",
       "If a tree is on a fence, roof, or driveway after a storm, call first. For planned removals and trims, send photos or book an on-site estimate.",
@@ -58,7 +58,7 @@ module.exports = [
   },
   {
     slug: "zachary", city: "Zachary", parish: "East Baton Rouge",
-    description: "Tree removal, trimming, stump grinding & storm cleanup in Zachary and north East Baton Rouge Parish. Free estimates: (225) 907-9013.",
+    description: "Tree removal, trimming, stump grinding & storm cleanup in Zachary and north East Baton Rouge Parish. Free estimates: (225) 418-2720.",
     intro: [
       "Vertic Tree Works covers Zachary and the north end of East Baton Rouge Parish — in-town lots near Main Street, homes along the Highway 19 corridor, and the newer neighborhoods that keep going up north of Baton Rouge. We do tree removal, trimming, stump grinding, and storm cleanup.",
       "Lots up here tend to run bigger, with more pines and more open ground for wind to work on. That usually helps with equipment access. We’re straight about drive time, too: we’ll tell you whether a quick look this week is realistic or it’s the next open day.",
@@ -75,7 +75,7 @@ module.exports = [
   },
   {
     slug: "central", city: "Central", parish: "East Baton Rouge",
-    description: "Tree removal, trimming, stump grinding & storm cleanup in the City of Central, LA. Free estimates: (225) 907-9013.",
+    description: "Tree removal, trimming, stump grinding & storm cleanup in the City of Central, LA. Free estimates: (225) 418-2720.",
     intro: [
       "This page is for Central, Louisiana — the City of Central in East Baton Rouge Parish, not central Baton Rouge. Vertic Tree Works handles tree removal, trimming, stump grinding, and storm cleanup for homes along Hooper Road, Wax Road, Sullivan Road, and the neighborhoods in between, with Greenwell Springs next door.",
       "Central has plenty of mature canopy over suburban yards — which is great until a storm puts pine limbs across the driveway. We’ll look at what’s over the roof and the places people walk, and give you a plain plan and price.",
@@ -92,7 +92,7 @@ module.exports = [
   },
   {
     slug: "gonzales", city: "Gonzales", parish: "Ascension",
-    description: "Tree removal, trimming, stump grinding & storm cleanup in Gonzales and Ascension Parish. Free estimates: (225) 907-9013.",
+    description: "Tree removal, trimming, stump grinding & storm cleanup in Gonzales and Ascension Parish. Free estimates: (225) 418-2720.",
     intro: [
       "Vertic Tree Works serves Gonzales and the surrounding part of Ascension Parish — neighborhoods off Airline Highway, homes toward Burnside and the River Road side, and the Pelican Point area. We do tree removal, trimming, stump grinding, and storm cleanup.",
       "Ascension keeps building, and a lot of new houses sit next to older oaks and pine stands that weren’t planned around them. If a tree is too close to the house, dropping limbs, or in the way of what you’re building, we’ll come look and give you a written number.",

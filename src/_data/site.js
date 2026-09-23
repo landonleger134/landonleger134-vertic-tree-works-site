@@ -14,7 +14,7 @@ module.exports = {
   name: "Vertic Tree Works",
   legalName: "Vertic Tree Works LLC",
   url: "https://vertictree.com",
-  phone: "(225) 907-9013",
+  phone: "(225) 418-2720",
   email: "info@vertictree.com",
   owners: ["Landon Leger", "Cole Grantham"],
 

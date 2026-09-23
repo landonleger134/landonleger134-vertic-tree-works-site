@@ -7,7 +7,7 @@ module.exports = [
     name: "Tree Removal",
     card: "Dead, leaning, or in the way. Sectioned down safe, chipped, hauled.",
     title: "Tree Removal Baton Rouge | Safe Residential Removals",
-    description: "Hazardous, dead, or oversized tree removal with cleanup. Serving EBR, Ascension & Livingston. Free on-site estimates: (225) 907-9013.",
+    description: "Hazardous, dead, or oversized tree removal with cleanup. Serving EBR, Ascension & Livingston. Free on-site estimates: (225) 418-2720.",
     h1: "Tree Removal in Baton Rouge & Surrounding Parishes",
     intro: [
       "Need a tree gone? We remove dead, leaning, storm-damaged, and oversized trees from residential yards across Greater Baton Rouge. We section them down, chip what we can, haul the rest, and leave the site clean.",
@@ -52,7 +52,7 @@ module.exports = [
     name: "Tree Trimming & Pruning",
     card: "Clear roofs and lines. Reduce storm risk. No harmful topping.",
     title: "Tree Trimming & Pruning Baton Rouge | Vertic Tree Works",
-    description: "Clear roofs and lines, reduce storm risk, and shape trees the right way — no harmful topping. Free estimates: (225) 907-9013.",
+    description: "Clear roofs and lines, reduce storm risk, and shape trees the right way — no harmful topping. Free estimates: (225) 418-2720.",
     h1: "Tree Trimming & Pruning in Baton Rouge",
     intro: [
       "Overgrown limbs on the roof. Branches in the lines. A canopy that needs thinning before storm season. We trim and prune residential trees across Greater Baton Rouge — with a clear plan and no “top and hope.”",
@@ -109,7 +109,7 @@ module.exports = [
     name: "Stump Grinding",
     card: "Grind it out after removal or as a standalone job.",
     title: "Stump Grinding Baton Rouge | Vertic Tree Works",
-    description: "Grind stumps after removal or as a standalone job. Ask about package pricing with tree removal. (225) 907-9013.",
+    description: "Grind stumps after removal or as a standalone job. Ask about package pricing with tree removal. (225) 418-2720.",
     h1: "Stump Grinding in Baton Rouge & Nearby Cities",
     intro: [
       "Tree’s gone but the stump remains — trip hazard, mower problem, or just ugly. We grind stumps below grade so you can reseed, sod, or plant. Available with our removals or as a standalone visit.",
@@ -149,7 +149,7 @@ module.exports = [
     name: "Emergency & Storm",
     card: "Tree on the house, driveway, or fence? Call first.",
     title: "Emergency Tree Removal Baton Rouge | Storm Response",
-    description: "Tree on the house or driveway? Call (225) 907-9013 for storm damage and hazard tree response across Greater Baton Rouge.",
+    description: "Tree on the house or driveway? Call (225) 418-2720 for storm damage and hazard tree response across Greater Baton Rouge.",
     h1: "Emergency & Storm Tree Service in Greater Baton Rouge",
     emergency: true,
     intro: [
@@ -193,7 +193,7 @@ module.exports = [
     card: "Lot and brush clearing. Site visit required.",
     optional: true,
     title: "Land & Lot Clearing Baton Rouge | Vertic Tree Works",
-    description: "Lot clearing and brush removal for residential and light commercial sites. Request a site visit: (225) 907-9013.",
+    description: "Lot clearing and brush removal for residential and light commercial sites. Request a site visit: (225) 418-2720.",
     h1: "Land & Lot Clearing in Greater Baton Rouge",
     intro: [
       "Building, opening up a back line, or clearing a grown-over lot? We clear trees and brush for residential and light sites when the job fits our crew and equipment. Site visit required — no curb quotes for clearing.",
