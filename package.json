@@ -1,0 +1,13 @@
+{
+  "name": "vertic-tree-works-site",
+  "private": true,
+  "description": "Vertic Tree Works LLC marketing site (Eleventy, deployed on Netlify)",
+  "scripts": {
+    "build": "eleventy && node scripts/claim-audit.js",
+    "serve": "eleventy --serve",
+    "audit": "node scripts/claim-audit.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

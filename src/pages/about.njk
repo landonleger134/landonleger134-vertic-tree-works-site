@@ -1,0 +1,45 @@
+---
+layout: base.njk
+permalink: /about/
+title: "About Vertic Tree Works | Baton Rouge Tree Service"
+description: "Vertic Tree Works is an owner-operated tree company serving Greater Baton Rouge. Meet the owners and see how we work."
+crumbs: [["About"]]
+---
+{% from "macros.njk" import ctaBand with context %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Owner-operated tree work for Greater Baton Rouge</h1>
+    <p class="lede">Local owners. The right equipment. Straight answers.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap narrow">
+    <h2>Who we are</h2>
+    <p>Vertic Tree Works LLC is a Baton Rouge–area tree company run by Landon Leger and Cole Grantham — partners, fifty-fifty. We do tree trimming, removal, stump grinding, and storm response. That’s the work. We show up with equipment that matches the job, give you a clear price, and clean up when we’re done.</p>
+    <p>We’re a new company, and we’re building it on purpose. No franchise script. No sales manager who never climbs. When you call <a href="{{ site.phone | tel }}">{{ site.phone }}</a>, you’re talking to the people who own the work.</p>
+
+    <h2>How we work</h2>
+    <ul class="ticks">
+      <li>Walk the tree and the access before we quote</li>
+      <li>Written estimate — what’s included and what isn’t</li>
+      <li>Protect the site as the job needs</li>
+      <li>Haul the wood and brush and leave the yard the way we promised</li>
+      <li>Certificate of insurance available before we start</li>
+    </ul>
+    <p>We’d rather tell you a tree can wait than sell you a cut you don’t need.</p>
+
+    <h2>Equipment</h2>
+    <ul class="ticks">{% for e in site.equipment %}<li>{{ e }}</li>{% endfor %}</ul>
+
+    <h2>Service area</h2>
+    <p>Greater Baton Rouge: {{ site.parishes }} — including {% for a in areas %}<a href="/areas/{{ a.slug }}/">{{ a.city }}</a>{% if not loop.last %}{% if loop.revindex == 2 %}, and {% else %}, {% endif %}{% endif %}{% endfor %}. Not sure you’re in range? Ask.</p>
+
+    <h2>Licensing and insurance</h2>
+    <p>{{ license.about }}</p>
+    <p><a href="/insurance-trust/">Insurance, safety, and how to request a COI</a></p>
+
+    <h2>Sister company</h2>
+    <p>Fence and exterior work is handled by our sister company, <a href="{{ site.sisterCompany.url }}">{{ site.sisterCompany.name }}</a>. Vertic is tree work only.</p>
+  </div>
+</section>
+{{ ctaBand("Want to meet us on your property?", "") }}

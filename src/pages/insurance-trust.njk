@@ -1,0 +1,50 @@
+---
+layout: base.njk
+permalink: /insurance-trust/
+title: "Insured Tree Service Baton Rouge | Vertic Tree Works"
+description: "Ask for our certificate of insurance before work begins. How Vertic Tree Works approaches safety and protecting your property."
+crumbs: [["Insurance & safety"]]
+---
+{% from "macros.njk" import ctaBand with context %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Insurance, safety, and how we protect your property</h1>
+    <p class="lede">You shouldn’t have to guess whether a tree crew carries insurance. Ask. We expect the question.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap narrow">
+    <h2>Insurance</h2>
+    <p>Vertic Tree Works is fully insured. A certificate of insurance (COI) is available before work starts — email <a href="mailto:{{ site.email }}">{{ site.email }}</a> or ask on the estimate visit.</p>
+    {% if answers.coverageLines.length %}
+    <dl class="coverage">{% for c in answers.coverageLines %}<dt>{{ c[0] }}</dt><dd>{{ c[1] }}</dd>{% endfor %}</dl>
+    {% endif %}
+
+    <h2>How to request a COI</h2>
+    <ol class="plain">
+      <li>Call <a href="{{ site.phone | tel }}">{{ site.phone }}</a> or email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</li>
+      <li>Give us the job address and any certificate-holder name your mortgage company or HOA needs.</li>
+      <li>We send the COI before work begins on accepted jobs.</li>
+    </ol>
+
+    <h2>Licensing</h2>
+    <p>{{ license.insurance }}</p>
+
+    <h2>Safety and site care</h2>
+    <ul class="ticks">
+      <li>Drop zones and access planned before any cutting starts</li>
+      <li>PPE and standard tree-work safety practices on every job</li>
+      <li>Fences, AC units, beds, and hardscape called out in the plan</li>
+      <li>Wood and brush hauled per the quote — we don’t leave a disaster and call it done</li>
+    </ul>
+
+    <h2>What we won’t do</h2>
+    <ul class="ticks ticks--no">
+      <li>Dodge the question when you ask about insurance</li>
+      <li>Cut a neighbor’s tree without proper authorization</li>
+      <li>Top trees as a cheap “solution”</li>
+      <li>Claim credentials we don’t hold</li>
+    </ul>
+  </div>
+</section>
+{{ ctaBand("Questions about coverage before you book?", "") }}

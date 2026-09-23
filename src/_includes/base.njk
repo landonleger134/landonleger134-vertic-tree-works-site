@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ page.url | absUrl }}">
+{% if not site.indexable or noindex %}<meta name="robots" content="noindex">{% endif %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ page.url | absUrl }}">
+<meta name="theme-color" content="#1c3a2b">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+{% include "schema.njk" %}
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="masthead__row wrap">
+    <a class="wordmark" href="/" aria-label="Vertic Tree Works home">Vertic<span>Tree Works</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/services/"{% if page.url == "/services/" %} aria-current="page"{% endif %}>Services</a>
+      <a href="/emergency-storm/"{% if page.url == "/emergency-storm/" %} aria-current="page"{% endif %}>Storm &amp; emergency</a>
+      <a href="/areas/"{% if "/areas/" in page.url %} aria-current="page"{% endif %}>Areas</a>
+      <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+      <a href="/faq/"{% if page.url == "/faq/" %} aria-current="page"{% endif %}>FAQ</a>
+    </nav>
+    <div class="masthead__actions">
+      <a class="btn btn--call" href="{{ site.phone | tel }}" aria-label="Call {{ site.phone }}">Call<span class="hide-sm">&nbsp;{{ site.phone }}</span></a>
+      <a class="btn btn--go" href="/contact/">Free Estimate</a>
+    </div>
+    <details class="menu">
+      <summary aria-label="Menu">Menu</summary>
+      <div class="menu__panel">
+        <a href="/services/">All services</a>
+        {% for s in services %}{% if not s.optional or site.landClearingLive %}<a href="/{{ s.slug }}/">{{ s.name }}</a>{% endif %}{% endfor %}
+        <a href="/areas/">Service areas</a>
+        <a href="/about/">About</a>
+        <a href="/insurance-trust/">Insurance</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </details>
+  </div>
+  <p class="trustbar">{{ license.chip }} · Free estimates</p>
+</header>
+
+<main id="main">
+{% if crumbs %}
+<nav class="crumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a>{% for c in crumbs %} / {% if c[1] %}<a href="{{ c[1] }}">{{ c[0] }}</a>{% else %}<span aria-current="page">{{ c[0] }}</span>{% endif %}{% endfor %}</nav>
+{% endif %}
+{{ content | safe }}
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <p class="wordmark wordmark--footer">Vertic<span>Tree Works</span></p>
+      <p><a class="footer__phone" href="{{ site.phone | tel }}">{{ site.phone }}</a><br>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
+      {{ site.hours or "Call or text for availability." }}</p>
+      <p class="footer__trust">{{ license.chip }}</p>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>{% for s in services %}{% if not s.optional or site.landClearingLive %}<li><a href="/{{ s.slug }}/">{{ s.name }}</a></li>{% endif %}{% endfor %}</ul>
+    </div>
+    <div>
+      <h2>Areas</h2>
+      <ul>{% for a in areas %}<li><a href="/areas/{{ a.slug }}/">{{ a.city }}</a></li>{% endfor %}</ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/insurance-trust/">Insurance &amp; safety</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/contact/">Free estimate</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="wrap footer__legal">© {{ site.year }} {{ site.legalName }} · Serving {{ site.parishes }}</p>
+</footer>
+</body>
+</html>

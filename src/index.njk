@@ -1,0 +1,94 @@
+---
+layout: base.njk
+title: "Tree Removal & Trimming in Baton Rouge | Vertic Tree Works"
+bodyClass: home
+eleventyComputed:
+  description: "{{ license.metaDescriptionHome }}"
+---
+{% from "macros.njk" import ctaBand with context %}
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <h1>Tree Removal &amp; Trimming for Greater Baton Rouge</h1>
+      <p class="hero__sub">We cut, chip, and haul. Owner-operated. Equipment ready. Straight answers on price and timeline.</p>
+      <div class="actions">
+        <a class="btn btn--go btn--xl" href="/contact/">Get a Free Estimate</a>
+        <a class="btn btn--ghost-light" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
+      </div>
+      <p class="hero__trust">{{ license.heroTrust }}</p>
+    </div>
+    <a class="doorpanel" href="{{ site.phone | tel }}">
+      <span class="doorpanel__label">Call or text</span>
+      <span class="doorpanel__num">{{ site.phone }}</span>
+      <span class="doorpanel__foot">Tree on the house? Call first.</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="lede">Tree removal, trimming, stump grinding, and storm response across Greater Baton Rouge. Tell us what you need — we’ll tell you what’s actually worth doing.</p>
+    <ul class="services">
+      {% for s in services %}{% if not s.optional or site.landClearingLive %}
+      <li class="services__item{% if s.emergency %} services__item--storm{% endif %}">
+        <a href="/{{ s.slug }}/"><h3>{{ s.name }}</h3><p>{{ s.card }}</p><span class="more">{% if s.emergency %}Call first{% else %}Learn more{% endif %}</span></a>
+      </li>
+      {% endif %}{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="wrap split">
+    <div>
+      <h2>Built around the work, not a call center</h2>
+      <p>Owner-operated. Landon and Cole run the jobs. We show up with the gear the job actually needs, give you a clear scope and a written estimate, and leave the yard cleaned up — not a pile of brush and a promise.</p>
+      <p>You talk to the people doing the work.</p>
+    </div>
+    <div>
+      <h3>What we bring</h3>
+      <ul class="ticks">{% for e in site.equipment %}<li>{{ e }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>How a job goes</h2>
+    <ol class="steps">
+      <li><h3>Call or send details</h3><p>Tell us the tree, the problem, and the city. Photos help. Say if it’s a hazard.</p></li>
+      <li><h3>On-site look, clear quote</h3><p>We check access, hazards, and disposal. You get a straight price before work starts.</p></li>
+      <li><h3>Cut, chip, haul</h3><p>Safe sectioning and cleanup as scoped. We don’t leave a mess and call it done.</p></li>
+      <li><h3>Walk the site</h3><p>We confirm the work matches what we quoted. Stump grinding available as an add-on.</p></li>
+    </ol>
+  </div>
+</section>
+
+{% if site.reviews.length %}
+<section class="section section--tint">
+  <div class="wrap">
+    <h2>What customers say</h2>
+    <div class="reviews">{% for r in site.reviews %}<blockquote><p>“{{ r.quote }}”</p><footer>{{ r.name }}, {{ r.city }}</footer></blockquote>{% endfor %}</div>
+  </div>
+</section>
+{% elif site.photos.length %}
+<section class="section section--tint">
+  <div class="wrap">
+    <h2>Recent work</h2>
+    <div class="gallery">{% for p in site.photos | batch(3) | first %}<img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy">{% endfor %}</div>
+    <p><a href="/gallery/">See the gallery</a></p>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap">
+    <h2>Where we work</h2>
+    <p>Baton Rouge and nearby — {{ site.parishes }}.</p>
+    <ul class="cities">{% for a in areas %}<li><a href="/areas/{{ a.slug }}/">{{ a.city }}</a></li>{% endfor %}</ul>
+    <p>Not sure if you’re in range? <a href="{{ site.phone | tel }}">Call {{ site.phone }}</a> — we’ll tell you straight.</p>
+  </div>
+</section>
+
+{{ ctaBand("Get a free estimate", "Call or text " + site.phone + ", or send the form. We respond within one business day on standard requests. Hazards — call now.") }}

@@ -1,0 +1,75 @@
+---
+layout: base.njk
+permalink: /contact/
+title: "Free Tree Service Estimate | Baton Rouge | Vertic Tree Works"
+description: "Tell us about your tree job in Baton Rouge or nearby. Call (225) 907-9013 or send photos for a fast estimate."
+crumbs: [["Free estimate"]]
+bodyClass: contact
+---
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Get a free tree work estimate</h1>
+    <p class="lede">Tell us what you need. Use the form for planned removals, trims, and stumps — photos speed things up.</p>
+    <p class="urgent"><strong>Storm or hazard?</strong> Don’t use the form. <a href="{{ site.phone | tel }}">Call {{ site.phone }} now</a>.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap contact-grid">
+    <form class="estimate" name="estimate" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company_website" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="estimate">
+      <p class="hp"><label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field-row">
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="f-city">City or area</label>
+          <select id="f-city" name="city" required>
+            <option value="">Choose one</option>
+            {% for a in areas %}<option>{{ a.city }}</option>{% endfor %}
+            <option>Other (tell us below)</option>
+          </select></div>
+        <div class="field"><label for="f-service">Service</label>
+          <select id="f-service" name="service" required>
+            <option value="">Choose one</option>
+            <option>Tree removal</option><option>Tree trimming</option><option>Stump grinding</option>
+            <option>Storm / emergency</option><option>Land clearing</option><option>Not sure</option><option>Other</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-desc">What’s going on with the tree?</label>
+        <textarea id="f-desc" name="description" rows="5" required placeholder="Type of tree if you know it, how close it is to the house, fences or lines nearby…"></textarea></div>
+      <div class="field"><label for="f-photo">Photo (optional, but it helps)</label><input id="f-photo" name="photo" type="file" accept="image/*"></div>
+      <div class="field-row">
+        <div class="field"><label for="f-time">Best time to reach you <span class="opt">(optional)</span></label><input id="f-time" name="contact_time"></div>
+        <div class="field"><label for="f-heard">How did you hear about us? <span class="opt">(optional)</span></label><input id="f-heard" name="heard_about"></div>
+      </div>
+      <div class="field field--check"><input id="f-consent" name="consent" type="checkbox" value="yes" required><label for="f-consent">You can contact me about this estimate.</label></div>
+      <button class="btn btn--go btn--xl" type="submit">Request Free Estimate</button>
+      <p class="form-error" role="alert" hidden>Something didn’t send. Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll take it from here.</p>
+    </form>
+    <aside class="contact-aside">
+      <h2>Prefer to talk?</h2>
+      <p><a class="bigphone" href="{{ site.phone | tel }}">{{ site.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <p>{{ answers.hours }}</p>
+      <p class="small">{{ license.chip }}</p>
+    </aside>
+  </div>
+</section>
+<script>
+// Submit in place so a failed send shows a clear message instead of a dead page.
+// Without JS the form still posts normally to /thanks/.
+(function () {
+  var form = document.querySelector("form.estimate");
+  var err = form.querySelector(".form-error");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Sending…";
+    fetch("/", { method: "POST", body: new FormData(form) })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); window.location.href = "/thanks/"; })
+      .catch(function () { err.hidden = false; btn.disabled = false; btn.textContent = "Request Free Estimate"; });
+  });
+})();
+</script>

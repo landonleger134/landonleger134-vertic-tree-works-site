@@ -1,0 +1,61 @@
+---
+layout: base.njk
+pagination:
+  data: areas
+  size: 1
+  alias: a
+  addAllPagesToCollections: true
+permalink: "/areas/{{ a.slug }}/"
+---
+{% from "macros.njk" import ctaBand with context %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Tree Service in {{ a.city }}, {{ a.parish }} Parish</h1>
+    {% for p in a.intro %}<p class="lede">{{ p }}</p>{% endfor %}
+    <div class="actions">
+      <a class="btn btn--go btn--xl" href="/contact/">Get a Free Estimate in {{ a.city }}</a>
+      <a class="btn btn--ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
+    </div>
+    <p class="pagehead__trust">{{ license.areaTrust(a.city + " and nearby") }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2>Tree work in {{ a.city }}</h2>
+      <ul class="links">{% for s in services %}{% if not s.optional or site.landClearingLive %}<li><a href="/{{ s.slug }}/">{{ s.name }}</a></li>{% endif %}{% endfor %}</ul>
+    </div>
+    <div>
+      <h2>What we see here</h2>
+      <ul class="ticks">{% for p in a.painPoints %}<li>{{ p }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="wrap narrow">
+    <h2>Local notes</h2>
+    <p>{{ a.notes }}</p>
+    <h3>Places we work in and around {{ a.city }}</h3>
+    <p class="places">{{ a.places | join(" · ") }}</p>
+    <h3>Why call Vertic</h3>
+    <p>{{ a.why }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>How it goes</h2>
+    <ol class="steps">
+      <li><h3>Call or send the form</h3><p>Name your city and what’s going on with the tree. Photos help.</p></li>
+      <li><h3>On-site estimate</h3><p>We walk the tree and access and give you a written price.</p></li>
+      <li><h3>Schedule and work</h3><p>We confirm the day and do the job as quoted.</p></li>
+      <li><h3>Cleanup</h3><p>Wood and brush hauled per the quote. Stump grinding if you want it.</p></li>
+    </ol>
+    <h2 class="mt">Nearby</h2>
+    <ul class="cities">{% for n in a.nearby %}{% for x in areas %}{% if x.slug == n %}<li><a href="/areas/{{ x.slug }}/">{{ x.city }}</a></li>{% endif %}{% endfor %}{% endfor %}<li><a href="/areas/">All service areas</a></li></ul>
+  </div>
+</section>
+
+{{ ctaBand("Get a free estimate in " + a.city, "Tell us what’s going on with the tree. We’ll tell you what it takes and when we can get there.") }}

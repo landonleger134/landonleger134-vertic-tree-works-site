@@ -1,0 +1,2 @@
+# Send the bare domain's www variant (and any .html requests) to clean URLs
+/index.html   /   301

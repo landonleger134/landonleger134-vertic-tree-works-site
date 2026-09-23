@@ -1,0 +1,4 @@
+<script type="application/ld+json">{{ "" | bizLd | safe }}</script>
+{% if crumbs %}<script type="application/ld+json">{{ crumbs | crumbLd(page.url) | safe }}</script>{% endif %}
+{% if serviceSchema %}<script type="application/ld+json">{{ serviceSchema | serviceLd | safe }}</script>{% endif %}
+{% if faqSchema %}<script type="application/ld+json">{{ faqSchema | faqLd | safe }}</script>{% endif %}

@@ -1,0 +1,21 @@
+---
+layout: base.njk
+title: "Service Areas | Tree Service Greater Baton Rouge | Vertic Tree Works"
+description: "Vertic Tree Works serves East Baton Rouge, Ascension, and Livingston Parishes — Baton Rouge, Prairieville, Denham Springs, Zachary, Central, and Gonzales."
+crumbs: [["Service areas"]]
+---
+{% from "macros.njk" import ctaBand with context %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Service areas — Greater Baton Rouge</h1>
+    <p class="lede">Vertic Tree Works serves {{ site.parishes }}. Pick your city for local details — or call <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll tell you if you’re in range.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <ul class="areahub">
+      {% for a in areas %}<li><a href="/areas/{{ a.slug }}/"><h2>{{ a.city }}</h2><p>{{ a.parish }} Parish</p></a></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{{ ctaBand("In range? Let’s look at the tree.", "") }}

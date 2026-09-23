@@ -1,0 +1,26 @@
+{% macro ctaBand(heading, body, button="Get a Free Estimate", emergency=false) %}
+<section class="band band--cta">
+  <div class="wrap">
+    <h2>{{ heading }}</h2>
+    {% if body %}<p>{{ body }}</p>{% endif %}
+    <div class="actions">
+      {% if emergency %}
+      <a class="btn btn--call btn--xl" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
+      <a class="btn btn--ghost" href="/contact/">{{ button }}</a>
+      {% else %}
+      <a class="btn btn--go btn--xl" href="/contact/">{{ button }}</a>
+      <a class="btn btn--ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
+      {% endif %}
+    </div>
+    <p class="band__small">{{ answers.hours }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro faqList(items) %}
+<div class="faq">
+{% for f in items %}
+  <details><summary>{{ f[0] }}</summary><p>{{ f[1] }}</p></details>
+{% endfor %}
+</div>
+{% endmacro %}

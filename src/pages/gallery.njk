@@ -1,0 +1,34 @@
+---
+layout: base.njk
+permalink: /gallery/
+title: "Tree Work Gallery | Vertic Tree Works Baton Rouge"
+description: "Photos of real Vertic Tree Works jobs around Baton Rouge — removals, trimming, stump grinding, storm cleanup, and our equipment."
+crumbs: [["Gallery"]]
+---
+{% from "macros.njk" import ctaBand with context %}
+{% set cats = [["equipment","Equipment"],["removal","Removal"],["trimming","Trimming"],["stump","Stump grinding"],["storm","Storm"],["cleanup","Cleanup"]] %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Our work</h1>
+    <p class="lede">Real jobs, real equipment. No stock photos.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+  {% if site.photos.length %}
+    {% for c in cats %}
+      {% set shots = site.photos | byCategory(c[0]) %}
+      {% if shots.length %}
+      <h2>{{ c[1] }}</h2>
+      <div class="gallery">{% for p in shots %}<img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy">{% endfor %}</div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <div class="empty">
+      <h2>Job photos are on the way</h2>
+      <p>We’re adding photos from our own jobs as we go — no stock images. Want to see recent work now? Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll send you some.</p>
+    </div>
+  {% endif %}
+  </div>
+</section>
+{{ ctaBand("Want your yard to be next?", "") }}

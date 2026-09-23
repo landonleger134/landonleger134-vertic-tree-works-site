@@ -1,0 +1,18 @@
+---
+layout: base.njk
+permalink: /faq/
+title: "Tree Service FAQ | Vertic Tree Works Baton Rouge"
+description: "Answers on estimates, insurance, storm response, cleanup, topping, and what to expect from Vertic Tree Works. Call (225) 907-9013."
+crumbs: [["FAQ"]]
+---
+{% from "macros.njk" import ctaBand, faqList with context %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Frequently asked questions</h1>
+    <p class="lede">Straight answers. If yours isn’t here, call <a href="{{ site.phone | tel }}">{{ site.phone }}</a>.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap narrow">{{ faqList(faq) }}</div>
+</section>
+{{ ctaBand("Still have a question?", "Call or request an estimate — we’ll answer it on the phone or on your property.") }}

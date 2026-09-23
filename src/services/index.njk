@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: "Tree Services in Baton Rouge | Vertic Tree Works"
+description: "Tree removal, trimming, stump grinding, and storm response across Greater Baton Rouge. Free estimates: (225) 907-9013."
+crumbs: [["Services"]]
+---
+{% from "macros.njk" import ctaBand with context %}
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Tree services for Greater Baton Rouge</h1>
+    <p class="lede">Removal, trimming, stump grinding, and storm response. Tell us what you need — we’ll tell you what’s actually worth doing.</p>
+    <p class="pagehead__trust">{{ license.chip }} · Free estimates</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <ul class="services services--hub">
+      {% for s in services %}{% if not s.optional or site.landClearingLive %}
+      <li class="services__item{% if s.emergency %} services__item--storm{% endif %}">
+        <a href="/{{ s.slug }}/"><h2>{{ s.name }}</h2><p>{{ s.card }}</p><p class="small">{{ s.intro[0] }}</p><span class="more">{% if s.emergency %}Call first{% else %}Learn more{% endif %}</span></a>
+      </li>
+      {% endif %}{% endfor %}
+    </ul>
+    <p>What we don’t do: tree topping. It weakens trees and costs you later — <a href="/tree-trimming/">here’s why</a>.</p>
+  </div>
+</section>
+{{ ctaBand("Not sure what you need?", "Send a photo or call. We’ll tell you straight.") }}

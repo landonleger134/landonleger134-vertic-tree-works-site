@@ -1,0 +1,99 @@
+---
+layout: base.njk
+pagination:
+  data: services
+  size: 1
+  alias: s
+  addAllPagesToCollections: true
+permalink: "/{{ s.slug }}/"
+---
+{% from "macros.njk" import ctaBand, faqList with context %}
+<section class="pagehead{% if s.emergency %} pagehead--storm{% endif %}">
+  <div class="wrap">
+    <h1>{{ s.h1 }}</h1>
+    {% for p in s.intro %}<p class="lede">{{ p }}</p>{% endfor %}
+    {% if s.emergency %}
+    <a class="btn btn--call btn--huge" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
+    <p class="pagehead__hours">{{ answers.hours }} We prioritize hazards when we can respond.</p>
+    <p class="pagehead__secondary">Situation stable? <a href="/contact/">Send photos through the estimate form</a>.</p>
+    {% else %}
+    <div class="actions">
+      <a class="btn btn--go btn--xl" href="/contact/">Get a Free Estimate</a>
+      <a class="btn btn--ghost" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
+    </div>
+    {% endif %}
+    <p class="pagehead__trust">{{ license.chip }} · {{ s.trustTail }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2>What we do</h2>
+      <ul class="ticks">{% for w in s.whatWeDo %}<li>{% if w == "Stump grinding as an add-on" %}<a href="/stump-grinding/">{{ w }}</a>{% else %}{{ w }}{% endif %}</li>{% endfor %}</ul>
+      {% if s.note %}<p class="note">{{ s.note }}</p>{% endif %}
+    </div>
+    <div>
+      <h2>When to call</h2>
+      <ul class="ticks ticks--warn">{% for w in s.whenToCall %}<li>{{ w }}</li>{% endfor %}</ul>
+      {% if s.hazardNote %}<p class="note note--storm">Hazard right now — tree on a structure or blocking the road? <a href="/emergency-storm/">Emergency &amp; storm</a> or call <a href="{{ site.phone | tel }}">{{ site.phone }}</a> first.</p>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% if s.callout %}
+<section class="section section--tint">
+  <div class="wrap narrow">
+    <h2>{{ s.callout.heading }}</h2>
+    <p>{{ s.callout.body }}</p>
+  </div>
+</section>
+{% endif %}
+
+{% if s.policy %}
+<section class="section">
+  <div class="wrap narrow policy">
+    <h2>{{ s.policy.heading }}</h2>
+    <p>{{ s.policy.body }}</p>
+  </div>
+</section>
+{% endif %}
+
+{% if s.education %}
+<section class="section section--tint">
+  <div class="wrap narrow">
+    <h2>{{ s.education.heading }}</h2>
+    {% for p in s.education.paras %}<p>{{ p }}</p>{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap">
+    <h2>How it goes</h2>
+    <ol class="steps">{% for st in s.process %}<li><h3>{{ st[0] }}</h3><p>{{ st[1] }}</p></li>{% endfor %}</ol>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="wrap narrow">
+    <h2>Questions</h2>
+    {{ faqList(faq) }}
+    <p><a href="/faq/">More answers in the FAQ</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2>Related services</h2>
+      <ul class="links">{% for r in s.related %}{% for x in services %}{% if x.slug == r and (not x.optional or site.landClearingLive) %}<li><a href="/{{ x.slug }}/">{{ x.name }}</a></li>{% endif %}{% endfor %}{% endfor %}</ul>
+    </div>
+    <div>
+      <h2>Nearby areas</h2>
+      <ul class="links">{% for r in s.areas %}{% for a in areas %}{% if a.slug == r %}<li><a href="/areas/{{ a.slug }}/">{{ s.name }} in {{ a.city }}</a></li>{% endif %}{% endfor %}{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+
+{{ ctaBand(s.ctaHeading, "", s.ctaButton, s.emergency) }}
