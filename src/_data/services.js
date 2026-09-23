@@ -84,7 +84,7 @@ module.exports = [
     process: [
       ["Walk the tree", "Goals first: clearance, health, storm risk, appearance."],
       ["Written scope", "What comes off, what stays, and the price."],
-      ["Trim day", "We climb or work from the ground as the tree needs. Cuts made with the tree’s structure in mind."],
+      ["Trim day", "Bucket truck, lift, or climb — whatever the tree and the access call for. Cuts made with the tree’s structure in mind."],
       ["Chip and haul", "Yard left clean unless you want mulch left behind (confirmed on the estimate)."],
     ],
     whenToCall: [

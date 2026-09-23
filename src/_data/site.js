@@ -39,10 +39,11 @@ module.exports = {
 
   // Only list gear that's actually ready. Uncomment as it arrives.
   equipment: [
+    "Bucket truck for height and controlled cuts",
+    "Aerial lifts for reaching limbs where the truck can’t go",
     "Climbing and rigging gear for tight yards and controlled lowering",
     "Professional saw lineup, up to a large-bar saw for big oak work",
     "Skid steer for moving wood and debris",
-    // "Bucket truck for height and controlled cuts",
     // "Chipper for on-site processing",
     // "Dump trailer for haul-off",
   ],
