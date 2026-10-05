@@ -117,7 +117,16 @@ p{margin:0 0 1em;max-width:68ch}
 .pagehead__secondary{color:var(--muted)}
 
 /* Services list — rows with a working edge, not floating cards */
-.services{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.services{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:1rem}
+/* 3 cards on the first row, 2 equal cards on the second — never a lone card.
+   Six columns: each card spans 2; with exactly 5 cards, cards 4–5 span 3. */
+@media (min-width:700px){
+  .services{grid-template-columns:repeat(6,1fr)}
+  .services__item{grid-column:span 2}
+  .services__item:first-child:nth-last-child(5) ~ .services__item:nth-child(n+4){grid-column:span 3}
+  .services__item:first-child:nth-last-child(4),
+  .services__item:first-child:nth-last-child(4) ~ .services__item{grid-column:span 3}
+}
 .services__item a{display:block;height:100%;padding:1.1rem 1.2rem 1.2rem;border-left:5px solid var(--orange);background:var(--paper);text-decoration:none;color:var(--ink)}
 .services__item a:hover{background:#f3ecde}
 .services__item h2,.services__item h3{margin:0 0 .35rem;font-size:1.2rem}

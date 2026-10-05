@@ -31,6 +31,8 @@ const rules = [
   [/907[-.\s)]*9013/, "Strata's phone number (225) 907-9013 on the Vertic site"],
   [/href="mailto:(?!info@vertictree\.com")/, "mailto: link that isn't the Vertic inbox"],
   [/topping service|we top trees/i, "topping offered as a service"],
+  [/50\s*\/\s*50|fifty[-\s]fifty|equity split|ownership split|\bLeger\b|\bGrantham\b/i, "ownership split or owner last name on a public page (first names only)"],
+  [/new company|\bstart-?up\b/i, "“new company” / startup language on a public page"],
   // 2026-09-29 brief §12
   [/\bour cranes?\b|\bwe own\b|\bour fleet\b|\bown(s|ed)? (a |the |our )?cranes?\b|\bin-house crane/i, "owned-crane / fleet wording (cranes are arranged through trusted partners)"],
   [/\$\s?\d{1,3}(,\d{3}){1,}|per occurrence|in coverage|coverage limits?|policy limits?/i, "insurance dollar amount / coverage figure"],
@@ -68,6 +70,20 @@ if (!site.landClearingLive && /land-clearing/.test(fs.readFileSync(path.join(OUT
     if (ch === "}" && --depth < 0) { hits.push(`assets/site.css: unmatched "}" near line ${line}`); break; }
   }
   if (depth > 0) hits.push(`assets/site.css: ${depth} unclosed "{"`);
+}
+
+// "What we do" grid: 3 + 2 (never a lone card). Each card spans 2 of 6
+// columns; with exactly 5 cards the last two span 3 — check the markup count
+// and that the stylesheet still carries that rule.
+{
+  const css = fs.readFileSync(path.join(OUT, "assets", "site.css"), "utf8");
+  const has3x2 = /repeat\(6,\s*1fr\)/.test(css) && /\.services__item:first-child:nth-last-child\(5\)\s*~\s*\.services__item:nth-child\(n\+4\)\s*\{\s*grid-column:\s*span 3/.test(css);
+  for (const rel of ["index.html", "services/index.html"]) {
+    const html = fs.readFileSync(path.join(OUT, rel), "utf8");
+    const n = (html.match(/class="services__item/g) || []).length;
+    if (n === 5 && !has3x2) hits.push(`${rel}: 5 service cards but the 3 + 2 grid rule is missing`);
+    if (n % 3 === 1 && n !== 4) hits.push(`${rel}: ${n} service cards would leave one alone on the last row`);
+  }
 }
 
 // The verbatim license line must be on these pages once licensed.

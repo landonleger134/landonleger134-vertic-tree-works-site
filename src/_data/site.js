@@ -18,7 +18,8 @@ module.exports = {
   email: "info@vertictree.com",
   // Estimate form → ops app (Supabase edge function). Netlify Forms keeps a backup copy.
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
-  owners: ["Landon Leger", "Cole Grantham"],
+  // Public site: first names only — no last names, no ownership split (2026-09-29 brief).
+  owners: ["Landon", "Cole"],
 
   // Landon confirmed 2026-10-05: 24/7 for emergency response. Worded as
   // "24/7 emergency response" (not general office hours). The claim audit
