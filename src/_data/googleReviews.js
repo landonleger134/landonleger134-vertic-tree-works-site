@@ -8,6 +8,9 @@
 // The API key lives only in Netlify (GOOGLE_PLACES_API_KEY, builds scope).
 // Local testing: REVIEWS_FIXTURE=path/to/place.json uses a saved response.
 const fs = require("fs");
+const path = require("path");
+// Status for the deploy summary (netlify/plugins/reviews-status) — not published.
+function report(status){ try{ fs.writeFileSync(path.join(process.cwd(), ".reviews-status.json"), JSON.stringify({ at: new Date().toISOString(), status })); }catch(e){} }
 
 const QUERY = "Vertic Tree Works, 12677 Jefferson Hwy, Baton Rouge, LA 70816";
 const MAX = 3;
@@ -53,7 +56,7 @@ module.exports = async function () {
       return shape(JSON.parse(fs.readFileSync(process.env.REVIEWS_FIXTURE, "utf8")));
     }
     const key = process.env.GOOGLE_PLACES_API_KEY;
-    if (!key) { console.log("[googleReviews] no GOOGLE_PLACES_API_KEY — reviews section hidden"); return empty; }
+    if (!key) { console.log("[googleReviews] no GOOGLE_PLACES_API_KEY — reviews section hidden"); report("No GOOGLE_PLACES_API_KEY in this build — reviews hidden"); return empty; }
 
     const found = await fetchJson("https://places.googleapis.com/v1/places:searchText", {
       method: "POST",
@@ -61,16 +64,22 @@ module.exports = async function () {
       body: JSON.stringify({ textQuery: QUERY, maxResultCount: 3 }),
     });
     const match = (found.places || []).find((p) => /vertic/i.test((p.displayName && p.displayName.text) || ""));
-    if (!match) { console.log("[googleReviews] Vertic profile not found by text search — reviews hidden"); return empty; }
+    if (!match) {
+      const names = (found.places || []).map((p) => (p.displayName && p.displayName.text) || "?").join(", ") || "none";
+      console.log("[googleReviews] Vertic profile not found by text search — reviews hidden");
+      report("Vertic profile not found by search (got: " + names + ") — reviews hidden"); return empty;
+    }
 
     const place = await fetchJson(`https://places.googleapis.com/v1/places/${encodeURIComponent(match.id)}`, {
       headers: { "X-Goog-Api-Key": key, "X-Goog-FieldMask": "id,displayName,googleMapsUri,reviews" },
     });
     const out = shape(place);
     console.log(`[googleReviews] ${out.placeName} (${match.id}): ${(place.reviews || []).length} returned, showing ${out.reviews.length} five-star`);
+    report(`OK — ${out.placeName} (${match.id}): Google returned ${(place.reviews || []).length} reviews, showing ${out.reviews.length} five-star`);
     return out;
   } catch (e) {
     console.log("[googleReviews] fetch failed — reviews hidden this build:", e.message);
+    report("Google request failed: " + String(e.message).slice(0, 300) + " — reviews hidden");
     return empty;
   }
 };
