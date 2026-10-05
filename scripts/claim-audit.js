@@ -46,7 +46,8 @@ const rules = [
 const hits = [];
 for (const f of files) {
   const rel = path.relative(OUT, f);
-  const txt = fs.readFileSync(f, "utf8");
+  // Customers' own words (Google reviews) aren't our claims — judge only our copy.
+  const txt = fs.readFileSync(f, "utf8").replace(/<blockquote class="review">[\s\S]*?<\/blockquote>/g, "");
   for (const [re, why] of rules) {
     const m = txt.match(re);
     if (m) hits.push(`${rel}: ${why} → "${txt.slice(Math.max(0, m.index - 40), m.index + 40).replace(/\s+/g, " ")}"`);

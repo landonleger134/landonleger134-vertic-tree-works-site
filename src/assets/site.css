@@ -229,3 +229,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--char);outline:none;bo
 .footer__legal{border-top:1px solid #2e3639;margin-top:2rem;padding-top:1rem;color:#8c897f;max-width:none}
 
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+
+/* Google reviews */
+.review{margin:0;display:flex;flex-direction:column;gap:.5rem}
+.review__stars{display:flex;gap:2px;color:#e7a521}
+.review footer{font-size:.9rem;color:var(--muted,#6b6357)}
+.review footer a,.review p a{color:inherit}
+.reviews__attr{margin-top:1rem;font-size:.9rem;color:var(--muted,#6b6357)}

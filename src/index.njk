@@ -65,7 +65,25 @@ eleventyComputed:
   </div>
 </section>
 
-{% if site.reviews.length %}
+{% if googleReviews.reviews.length %}
+{# Real Google reviews (5-star only, newest 3), fetched at build. Every field is
+   escaped — review text comes from the public. No overall rating or review
+   count is shown (the section is labeled as 5-star picks, with a link to all). #}
+{% set star %}<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg>{% endset %}
+<section class="section section--tint">
+  <div class="wrap">
+    <h2>Recent 5-star reviews from Google</h2>
+    <div class="reviews">{% for r in googleReviews.reviews %}
+      <blockquote class="review">
+        <div class="review__stars" role="img" aria-label="Rated 5 out of 5 on Google">{{ star | safe }}{{ star | safe }}{{ star | safe }}{{ star | safe }}{{ star | safe }}</div>
+        <p>“{{ r.text | e }}”{% if r.full and r.uri %} <a href="{{ r.uri | e }}" rel="noopener" target="_blank">Read more</a>{% endif %}</p>
+        <footer>{% if r.authorUri %}<a href="{{ r.authorUri | e }}" rel="noopener nofollow" target="_blank">{{ r.author | e }}</a>{% else %}{{ r.author | e }}{% endif %}{% if r.when %} · {{ r.when | e }}{% endif %}</footer>
+      </blockquote>{% endfor %}
+    </div>
+    <p class="reviews__attr">Reviews from Google.{% if googleReviews.mapsUri %} <a href="{{ googleReviews.mapsUri | e }}" rel="noopener" target="_blank">See all our reviews on Google</a>{% endif %}</p>
+  </div>
+</section>
+{% elif site.reviews.length %}
 <section class="section section--tint">
   <div class="wrap">
     <h2>What customers say</h2>
