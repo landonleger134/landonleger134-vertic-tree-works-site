@@ -2,33 +2,43 @@
 layout: base.njk
 permalink: /gallery/
 title: "Tree Work Gallery | Vertic Tree Works Baton Rouge"
-description: "Photos of real Vertic Tree Works jobs around Baton Rouge — removals, trimming, stump grinding, storm cleanup, and our equipment."
+description: "Photos of real Vertic Tree Works jobs around Baton Rouge — removals, trimming, stump grinding, storm cleanup, and land clearing."
 crumbs: [["Gallery"]]
 ---
 {% from "macros.njk" import ctaBand with context %}
-{% set cats = [["equipment","Equipment"],["removal","Removal"],["trimming","Trimming"],["stump","Stump grinding"],["storm","Storm"],["cleanup","Cleanup"]] %}
+{# Categories per the 2026-09-29 brief. Until Landon approves photo picks, each
+   category shows a labeled placeholder slot with descriptive alt text. Never:
+   bucket truck / chipper shots, the CNI-lettered dump truck, or Strata fence photos. #}
+{% set cats = [
+  ["removal","Removal","Excavator taking down a tree in a Baton Rouge yard"],
+  ["trimming","Trimming","Climber pruning limbs back from a roofline"],
+  ["stump","Stump grinding","Stump ground below grade, area raked clean"],
+  ["storm","Storm","Storm-downed tree being cut off a driveway"],
+  ["cleanup","Cleanup","Skid steer loading brush and wood for haul-off"],
+  ["land-clearing","Land clearing","Lot cleared of brush and small trees, keeper trees left standing"]
+] %}
 <section class="pagehead">
   <div class="wrap">
     <h1>Our work</h1>
-    <p class="lede">Real jobs, real equipment. No stock photos.</p>
+    <p class="lede">Real jobs. No stock photos. We cut, chip, and haul — and leave the yard clean.</p>
   </div>
 </section>
 <section class="section">
   <div class="wrap">
-  {% if site.photos.length %}
+    {% if not site.photos.length %}
+    <p>We’re adding photos from our own jobs as we go — no stock images. Want to see recent work now? Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll send you some.</p>
+    <div class="gallery">{% for c in cats %}<div class="photo-slot" role="img" aria-label="Photo coming soon — {{ c[1] }}: {{ c[2] }}"><span>{{ c[1] }}</span><small>Photo coming soon: {{ c[2] }}</small></div>{% endfor %}</div>
+    {% else %}
     {% for c in cats %}
       {% set shots = site.photos | byCategory(c[0]) %}
-      {% if shots.length %}
       <h2>{{ c[1] }}</h2>
+      {% if shots.length %}
       <div class="gallery">{% for p in shots %}<img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy">{% endfor %}</div>
+      {% else %}
+      <div class="gallery"><div class="photo-slot" role="img" aria-label="Photo coming soon: {{ c[2] }}"><span>Photo coming soon</span><small>{{ c[2] }}</small></div></div>
       {% endif %}
     {% endfor %}
-  {% else %}
-    <div class="empty">
-      <h2>Job photos are on the way</h2>
-      <p>We’re adding photos from our own jobs as we go — no stock images. Want to see recent work now? Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll send you some.</p>
-    </div>
-  {% endif %}
+    {% endif %}
   </div>
 </section>
 {{ ctaBand("Want your yard to be next?", "") }}

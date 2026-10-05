@@ -31,6 +31,12 @@ const rules = [
   [/907[-.\s)]*9013/, "Strata's phone number (225) 907-9013 on the Vertic site"],
   [/href="mailto:(?!info@vertictree\.com")/, "mailto: link that isn't the Vertic inbox"],
   [/topping service|we top trees/i, "topping offered as a service"],
+  // 2026-09-29 brief §12
+  [/\bour cranes?\b|\bwe own\b|\bour fleet\b|\bown(s|ed)? (a |the |our )?cranes?\b|\bin-house crane/i, "owned-crane / fleet wording (cranes are arranged through trusted partners)"],
+  [/\$\s?\d{1,3}(,\d{3}){1,}|per occurrence|in coverage|coverage limits?|policy limits?/i, "insurance dollar amount / coverage figure"],
+  !site.stage && [/Licensed Arborist\s*#/i, "old-format license claim (use the verbatim license line)"],
+  !site.stage && [new RegExp("License No\\.(?! " + site.licenseNumber.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b)"), "license number that isn't site.licenseNumber"],
+  !site.stage && [/LDAF Licensed Arborist(?!, License No\. )/, "license line not verbatim"],
   !site.equipment.some((e) => /bucket truck/i.test(e)) && [/bucket truck/i, "bucket truck claimed but not in site.equipment"],
   !site.equipment.some((e) => /chipper/i.test(e)) && [/\bchipper\b/i, "chipper claimed but not in site.equipment"],
 ].filter(Boolean);
@@ -62,6 +68,15 @@ if (!site.landClearingLive && /land-clearing/.test(fs.readFileSync(path.join(OUT
     if (ch === "}" && --depth < 0) { hits.push(`assets/site.css: unmatched "}" near line ${line}`); break; }
   }
   if (depth > 0) hits.push(`assets/site.css: ${depth} unclosed "{"`);
+}
+
+// The verbatim license line must be on these pages once licensed.
+if (!site.stage) {
+  const line = "Louisiana LDAF Licensed Arborist, License No. " + site.licenseNumber;
+  for (const rel of ["index.html", "about/index.html", "faq/index.html", "insurance-trust/index.html", "contact/index.html"]) {
+    const f = path.join(OUT, rel);
+    if (!fs.existsSync(f) || !fs.readFileSync(f, "utf8").includes(line)) hits.push(`${rel}: verbatim license line missing`);
+  }
 }
 
 if (hits.length) {

@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
       url: site.url + "/",
       telephone: "+1-" + site.phone.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"),
       email: site.email,
-      description: "Owner-operated tree removal, trimming, stump grinding, and storm cleanup in Greater Baton Rouge.",
+      description: "Owner-operated tree removal, trimming, stump grinding, land clearing, and storm cleanup in Greater Baton Rouge." + (license.line ? " " + license.line + "." : ""),
       areaServed: ["Baton Rouge, LA", "Prairieville, LA", "Denham Springs, LA", "Zachary, LA", "Central, LA", "Gonzales, LA",
         "East Baton Rouge Parish, LA", "Ascension Parish, LA", "Livingston Parish, LA"],
       founder: site.owners.map((name) => ({ "@type": "Person", name })),
@@ -39,6 +39,7 @@ module.exports = function (eleventyConfig) {
       }];
     }
     if (license.credential) biz.hasCredential = license.credential;
+    if (license.identifier) biz.identifier = license.identifier;
     return ld(biz);
   });
   eleventyConfig.addFilter("crumbLd", (crumbs, url) => ld({

@@ -7,14 +7,14 @@ module.exports = [
   {
     slug: "tree-removal",
     name: "Tree Removal",
-    card: "Dead, leaning, or in the way. Sectioned down safe, chipped, hauled.",
+    card: "Dead, leaning, or in the way. Sectioned down safe, chipped, hauled. " + site.craneLine,
     title: "Tree Removal Baton Rouge | Safe Residential Removals",
     description: "Hazardous, dead, or oversized tree removal with cleanup. Serving EBR, Ascension & Livingston. Free on-site estimates: (225) 418-2720.",
     h1: "Tree Removal in Baton Rouge & Surrounding Parishes",
     intro: [
       "Need a tree gone? We remove dead, leaning, storm-damaged, and oversized trees from residential yards across Greater Baton Rouge. We section them down, chip what we can, haul the rest, and leave the site clean.",
     ],
-    trustTail: "Certificate of insurance available before work starts.",
+    trustTail: "Chip and haul on quoted scopes.",
     whatWeDo: [
       "Full tree removal, from small yard trees to large hardwoods — scoped per job",
       "Hazardous and leaning trees near houses, fences, and driveways",
@@ -23,6 +23,10 @@ module.exports = [
       "Chip and haul included in most scopes (confirmed on the estimate)",
       "Stump grinding as an add-on",
     ],
+    callout: {
+      heading: "Big or hard-to-reach tree?",
+      body: "Some trees are too big, too tight to the house, or too far from access to rope down safely. For those, crane-assisted removals are arranged through trusted partners — we scope the job, coordinate the crane, and handle the cutting and cleanup. We’ll tell you on the visit if your tree needs one; crane availability and pricing are confirmed per job.",
+    },
     note: "We don’t guess from the curb when the job is complex. If we need a closer look at lean, decay, or access, we say so on the visit.",
     process: [
       ["Details or call", "Photos help. Note power lines, fences, septic, and how close the tree is to the house."],
@@ -86,7 +90,7 @@ module.exports = [
     process: [
       ["Walk the tree", "Goals first: clearance, health, storm risk, appearance."],
       ["Written scope", "What comes off, what stays, and the price."],
-      ["Trim day", "Bucket truck, lift, or climb — whatever the tree and the access call for. Cuts made with the tree’s structure in mind."],
+      ["Trim day", "Climb and rig, or work from the ground — whatever the tree and the access call for. Cuts made with the tree’s structure in mind."],
       ["Chip and haul", "Yard left clean unless you want mulch left behind (confirmed on the estimate)."],
     ],
     whenToCall: [
@@ -152,7 +156,7 @@ module.exports = [
     card: "Tree on the house, driveway, or fence? Call first.",
     title: "Emergency Tree Removal Baton Rouge | Storm Response",
     description: "Tree on the house or driveway? Call (225) 418-2720 for storm damage and hazard tree response across Greater Baton Rouge.",
-    h1: "Emergency & Storm Tree Service in Greater Baton Rouge",
+    h1: "Emergency & Storm Tree Removal in Baton Rouge",
     emergency: true,
     intro: [
       "Tree on the house. Driveway blocked. A limb hanging over the kids’ play area after a storm. Call us. We’ll tell you what we can do and how fast we can get there.",
@@ -165,6 +169,7 @@ module.exports = [
       "Hanging limbs left after wind",
       "Storm cleanup: cut, chip, and haul hazardous debris from the yard",
       "Photos and an itemized invoice for your homeowner’s claim — we’re not adjusters, but we document the work",
+      "Big storm trees: " + site.craneLine.charAt(0).toLowerCase() + site.craneLine.slice(1, -1) + " — timing depends on partner availability, so we won’t promise it before we’ve confirmed",
     ],
     process: [
       ["Call first", "Tell us what’s been hit — house, car, lines."],
@@ -192,11 +197,11 @@ module.exports = [
   {
     slug: "land-clearing",
     name: "Land Clearing",
-    card: "Lot and brush clearing. Site visit required.",
+    card: "Lot and brush clearing for homes and light sites. Site visit required.",
     optional: true,
     title: "Land & Lot Clearing Baton Rouge | Vertic Tree Works",
     description: "Lot clearing and brush removal for residential and light commercial sites. Request a site visit: (225) 418-2720.",
-    h1: "Land & Lot Clearing in Greater Baton Rouge",
+    h1: "Land Clearing in Baton Rouge, Ascension & Livingston",
     intro: [
       "Building, opening up a back line, or clearing a grown-over lot? We clear trees and brush for residential and light sites when the job fits our crew and equipment. Site visit required — no curb quotes for clearing.",
     ],

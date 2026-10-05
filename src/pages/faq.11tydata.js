@@ -16,6 +16,8 @@ const faq = [
   ["What about property lines and neighbor trees?", "We only cut what you’re authorized to cut. If the tree is on the line or the neighbor’s side, get agreement first. We’ll help you think it through on the visit."],
   ["How do payments work?", answers.payment],
   ["Do you top trees or crepe myrtles?", "No. Topping creates weak growth and long-term risk. We prune for structure and clearance. Crepe myrtles get proper reduction and shaping — not “crepe murder.”"],
+  ["Do you do crane work?", `${site.craneLine} For a big tree, one tight to the house, or one with no room to rope it down, we scope the job and coordinate the crane — then do the cutting and cleanup. Whether a tree needs one, and the price, is confirmed on the estimate visit.`],
+  ["Do you do land clearing?", "Yes — lot and brush clearing for homes and light sites: trees, brush, and debris. Every clearing job gets a site visit first, because density and access set the price, not a per-acre guess. Mark any trees you want kept."],
   ["Can you grind the stump the same day?", "Usually, yes. Once in a while access or scheduling pushes it to a follow-up visit — same-day or follow-up will be on the quote."],
   ["What’s the difference between Vertic and Strata Exterior?", `Vertic Tree Works is tree work — trimming, removal, stumps, storm. Strata Exterior (strata-exterior.com) is our sister company for fencing and exterior work. Different websites and contact info — for tree work, use ${tel} or ${site.email}.`],
   ["Do you do commercial tree work?", "Residential is our focus. Light commercial — small retail sites, churches, HOA common areas — we’ll quote case by case."],

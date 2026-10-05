@@ -10,7 +10,7 @@ eleventyComputed:
   <div class="wrap hero__grid">
     <div>
       <h1>Tree Removal &amp; Trimming for Greater Baton Rouge</h1>
-      <p class="hero__sub">We cut, chip, and haul. Owner-operated. Equipment ready. Straight answers on price and timeline.</p>
+      <p class="hero__sub">We cut, chip, and haul. Owner-operated. Straight answers on price and timeline.</p>
       <div class="actions">
         <a class="btn btn--go btn--xl" href="/contact/">Get a Free Estimate</a>
         <a class="btn btn--ghost-light" href="{{ site.phone | tel }}">Call {{ site.phone }}</a>
@@ -28,7 +28,7 @@ eleventyComputed:
 <section class="section">
   <div class="wrap">
     <h2>What we do</h2>
-    <p class="lede">Tree removal, trimming, stump grinding, and storm response across Greater Baton Rouge. Tell us what you need — we’ll tell you what’s actually worth doing.</p>
+    <p class="lede">Tree removal, trimming, stump grinding, land clearing, and emergency storm response across Greater Baton Rouge. Tell us what you need — we’ll tell you what’s actually worth doing.</p>
     <ul class="services">
       {% for s in services %}{% if not s.optional or site.landClearingLive %}
       <li class="services__item{% if s.emergency %} services__item--storm{% endif %}">
@@ -43,8 +43,8 @@ eleventyComputed:
   <div class="wrap split">
     <div>
       <h2>Built around the work, not a call center</h2>
-      <p>Owner-operated. Landon and Cole run the jobs. We show up with the gear the job actually needs, give you a clear scope and a written estimate, and leave the yard cleaned up — not a pile of brush and a promise.</p>
-      <p>You talk to the people doing the work.</p>
+      <p>Owner-operated crews. We show up with the gear to cut, chip, and haul — excavator and skid steers for takedowns and cleanup, plus climbing and rigging gear for tight yards. For big or hard-to-reach trees we arrange crane work through trusted partners. You talk to the people doing the work.</p>
+      <p>Landon and Cole run the jobs. You get a clear scope and a written estimate, and the yard gets left clean — not a pile of brush and a promise.</p>
     </div>
     <div>
       <h3>What we bring</h3>
@@ -57,10 +57,10 @@ eleventyComputed:
   <div class="wrap">
     <h2>How a job goes</h2>
     <ol class="steps">
-      <li><h3>Call or send details</h3><p>Tell us the tree, the problem, and the city. Photos help. Say if it’s a hazard.</p></li>
-      <li><h3>On-site look, clear quote</h3><p>We check access, hazards, and disposal. You get a straight price before work starts.</p></li>
+      <li><h3>Call or send details</h3><p>Tell us the tree, the problem, and the city. Photos help.</p></li>
+      <li><h3>On-site look / clear quote</h3><p>We assess access, hazards, and disposal. You get a straight price before work starts.</p></li>
       <li><h3>Cut, chip, haul</h3><p>Safe sectioning and cleanup as scoped. We don’t leave a mess and call it done.</p></li>
-      <li><h3>Walk the site</h3><p>We confirm the work matches what we quoted. Stump grinding available as an add-on.</p></li>
+      <li><h3>Walk the site</h3><p>Confirm the work matches what we quoted.</p></li>
     </ol>
   </div>
 </section>
@@ -91,4 +91,4 @@ eleventyComputed:
   </div>
 </section>
 
-{{ ctaBand("Get a free estimate", "Call or text " + site.phone + ", or send the form. We respond within one business day on standard requests. Hazards — call now.") }}
+{{ ctaBand("Get a free estimate", "Call or text " + site.phone + ", or send the form. Hazards — call now. " + answers.hours + " · " + site.email) }}

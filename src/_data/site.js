@@ -8,8 +8,8 @@ module.exports = {
   // THE LICENSE SWITCH. true = STAGE (pre-license). Set to false only after
   // the Louisiana arborist license is issued AND licenseNumber is filled in.
   // The build refuses to run with stage:false and no license number.
-  stage: true,
-  licenseNumber: null, // e.g. "1234"
+  stage: false,
+  licenseNumber: "AR 26-3070", // Louisiana LDAF (Horticulture Commission) arborist license — Landon, passed 2026-09-29
 
   name: "Vertic Tree Works",
   legalName: "Vertic Tree Works LLC",
@@ -20,9 +20,9 @@ module.exports = {
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   owners: ["Landon Leger", "Cole Grantham"],
 
-  // Landon confirmed 24/7 (2026-09-23). Only keep this true while someone
-  // really answers after hours — the claim audit allows "24/7" only when it is.
-  open247: true,
+  // 2026-09-29 brief: no 24/7 until Landon + Cole confirm hours. The claim
+  // audit allows "24/7" only while this is true (and the schema hours with it).
+  open247: false,
   // Regular hours text, used only when open247 is false. null = "Call or text for availability."
   hours: null,
 
@@ -39,16 +39,19 @@ module.exports = {
   // the sitemap (and is noindexed) until this is true.
   landClearingLive: true,
 
-  // Only list gear that's actually ready. Uncomment as it arrives.
+  // Only list gear that's actually ready. Per the 2026-09-29 brief the bucket
+  // truck and chipper stay OFF the site (text and photos) until Landon says
+  // they're cleaned up and logoed — the claim audit fails the build if either
+  // is mentioned while not in this list. Cranes are never "ours": crane work
+  // is arranged through trusted partners (see craneLine).
   equipment: [
-    "Bucket truck for height and controlled cuts",
-    "Aerial lifts for reaching limbs where the truck can’t go",
+    "Excavator for controlled takedowns",
+    "Skid steers for cleanup and moving wood and debris",
     "Climbing and rigging gear for tight yards and controlled lowering",
     "Professional saw lineup, up to a large-bar saw for big oak work",
-    "Chipper for on-site processing",
     "Dump trailer for haul-off",
-    "Skid steer for moving wood and debris",
   ],
+  craneLine: "Crane-assisted removals arranged through trusted partners.",
 
   parishes: "East Baton Rouge, Ascension & Livingston Parishes",
   sisterCompany: { name: "Strata Exterior", url: "https://strata-exterior.com/" },

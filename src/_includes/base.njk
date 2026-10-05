@@ -30,7 +30,8 @@
     <a class="logo" href="/"><picture><source media="(max-width:560px)" srcset="/assets/brand/mark.png" width="56" height="40"><img src="/assets/brand/logo-lockup.png" alt="Vertic Tree Works" width="212" height="46"></picture></a>
     <nav class="nav" aria-label="Main">
       <a href="/services/"{% if page.url == "/services/" %} aria-current="page"{% endif %}>Services</a>
-      <a href="/emergency-storm/"{% if page.url == "/emergency-storm/" %} aria-current="page"{% endif %}>Storm &amp; emergency</a>
+      <a href="/emergency-storm/"{% if page.url == "/emergency-storm/" %} aria-current="page"{% endif %}>Emergency</a>
+      {% if site.landClearingLive %}<a href="/land-clearing/"{% if page.url == "/land-clearing/" %} aria-current="page"{% endif %}>Land clearing</a>{% endif %}
       <a href="/areas/"{% if "/areas/" in page.url %} aria-current="page"{% endif %}>Areas</a>
       <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
       <a href="/faq/"{% if page.url == "/faq/" %} aria-current="page"{% endif %}>FAQ</a>
