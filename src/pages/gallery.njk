@@ -26,16 +26,16 @@ crumbs: [["Gallery"]]
 <section class="section">
   <div class="wrap">
     {% if not site.photos.length %}
-    <p>We’re adding photos from our own jobs as we go — no stock images. Want to see recent work now? Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll send you some.</p>
-    <div class="gallery">{% for c in cats %}<div class="photo-slot" role="img" aria-label="Photo coming soon — {{ c[1] }}: {{ c[2] }}"><span>{{ c[1] }}</span><small>Photo coming soon: {{ c[2] }}</small></div>{% endfor %}</div>
+    <div class="empty">
+      <h2>Job photos are on the way</h2>
+      <p>We’re adding photos from our own jobs as we go — no stock images. Want to see recent work now? Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll send you some.</p>
+    </div>
     {% else %}
     {% for c in cats %}
       {% set shots = site.photos | byCategory(c[0]) %}
-      <h2>{{ c[1] }}</h2>
       {% if shots.length %}
+      <h2>{{ c[1] }}</h2>
       <div class="gallery">{% for p in shots %}<img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy">{% endfor %}</div>
-      {% else %}
-      <div class="gallery"><div class="photo-slot" role="img" aria-label="Photo coming soon: {{ c[2] }}"><span>Photo coming soon</span><small>{{ c[2] }}</small></div></div>
       {% endif %}
     {% endfor %}
     {% endif %}

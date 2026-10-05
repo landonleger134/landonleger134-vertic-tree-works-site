@@ -220,9 +220,3 @@ input:focus,select:focus,textarea:focus{border-color:var(--char);outline:none;bo
 .footer__legal{border-top:1px solid #2e3639;margin-top:2rem;padding-top:1rem;color:#8c897f;max-width:none}
 
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
-
-/* Gallery placeholder slot until real job photos are approved */
-.photo-slot{aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px;text-align:center;
-  border:2px dashed var(--line,#cfc6b4);border-radius:10px;background:rgba(0,0,0,.03);color:var(--muted,#6b6357)}
-.photo-slot span{font-weight:700;letter-spacing:.02em}
-.photo-slot small{font-size:.85rem;max-width:26ch}

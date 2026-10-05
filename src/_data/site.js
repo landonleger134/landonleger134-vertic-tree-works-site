@@ -20,9 +20,10 @@ module.exports = {
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   owners: ["Landon Leger", "Cole Grantham"],
 
-  // 2026-09-29 brief: no 24/7 until Landon + Cole confirm hours. The claim
-  // audit allows "24/7" only while this is true (and the schema hours with it).
-  open247: false,
+  // Landon confirmed 2026-10-05: 24/7 for emergency response. Worded as
+  // "24/7 emergency response" (not general office hours). The claim audit
+  // allows "24/7" only while this is true; schema hours follow it.
+  open247: true,
   // Regular hours text, used only when open247 is false. null = "Call or text for availability."
   hours: null,
 

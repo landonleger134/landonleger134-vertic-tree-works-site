@@ -161,7 +161,7 @@ module.exports = [
     intro: [
       "Tree on the house. Driveway blocked. A limb hanging over the kids’ play area after a storm. Call us. We’ll tell you what we can do and how fast we can get there.",
     ],
-    trustTail: site.open247 ? "Open 24/7. Hazards come first." : "Hazards come first when we can respond.",
+    trustTail: site.open247 ? "24/7 emergency response. Hazards come first." : "Hazards come first when we can respond.",
     whatWeDo: [
       "Trees or large limbs on houses, garages, and sheds",
       "Blocked driveways, sidewalks, and access",
