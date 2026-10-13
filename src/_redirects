@@ -1,2 +1,7 @@
 # Send the bare domain's www variant (and any .html requests) to clean URLs
 /index.html   /   301
+
+# Estimate signing links texted to customers (vertictree.com/e/<code>).
+# Served from the ops app but kept on vertictree.com so customers see our name.
+/e/*              https://strata-exterior.netlify.app/e/:splat         200
+/contract-pdf.js  https://strata-exterior.netlify.app/contract-pdf.js  200
