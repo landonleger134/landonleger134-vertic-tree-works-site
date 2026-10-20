@@ -19,7 +19,7 @@ module.exports = {
   // GoHighLevel (LeadConnector) chat widget. Branding, contact fields and the
   // A2P SMS consent checkboxes are all configured inside GoHighLevel, not here.
   // null = widget removed from every page.
-  chatWidgetId: "6ad6acdce19e4c46e8ed4edb",
+  chatWidgetId: "6ad6ba53e0d80451b7becb71",
   // Estimate form on /contact/. false = form hidden; the page asks people to
   // call, text, or use the chat instead. Flip back to true to restore it.
   estimateFormLive: false,
