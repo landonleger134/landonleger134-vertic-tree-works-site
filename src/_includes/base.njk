@@ -89,11 +89,23 @@
         <li><a href="/gallery/">Gallery</a></li>
         <li><a href="/faq/">FAQ</a></li>
         <li><a href="/contact/">Free estimate</a></li>
-        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms &amp; SMS</a></li>
       </ul>
     </div>
   </div>
-  <p class="wrap footer__legal">© {{ site.year }} {{ site.legalName }} · Serving {{ site.parishes }}</p>
+  <p class="wrap footer__legal">© {{ site.year }} {{ site.legalName }} · Serving {{ site.parishes }} · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms &amp; SMS</a></p>
 </footer>
+{% if site.chatWidgetId %}
+{# GoHighLevel chat widget — one tag per page in the shared layout. The site is
+   static (full page loads, no client-side routing), and the loader itself skips
+   setup if a <chat-widget> already exists, so it can't initialize twice. #}
+<script
+  src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="{{ site.chatWidgetId }}"
+  data-source="WEB_USER"
+></script>
+{% endif %}
 </body>
 </html>

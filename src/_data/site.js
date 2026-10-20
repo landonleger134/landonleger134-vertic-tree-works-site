@@ -16,6 +16,10 @@ module.exports = {
   url: "https://vertictree.com",
   phone: "(225) 418-2720",
   email: "info@vertictree.com",
+  // GoHighLevel (LeadConnector) chat widget. Branding, contact fields and the
+  // A2P SMS consent checkboxes are all configured inside GoHighLevel, not here.
+  // null = widget removed from every page.
+  chatWidgetId: "6ad6acdce19e4c46e8ed4edb",
   // Estimate form → ops app (Supabase edge function). Netlify Forms keeps a backup copy.
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   // Public site: first names only — no last names, no ownership split (2026-09-29 brief).
