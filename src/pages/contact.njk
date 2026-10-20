@@ -2,17 +2,33 @@
 layout: base.njk
 permalink: /contact/
 title: "Free Tree Service Estimate | Baton Rouge | Vertic Tree Works"
-description: "Tell us about your tree job in Baton Rouge or nearby. Call (225) 418-2720 or send photos for a fast estimate."
+description: "Tell us about your tree job in Baton Rouge or nearby. Call or text (225) 418-2720 for a fast, free estimate."
 crumbs: [["Free estimate"]]
 bodyClass: contact
 ---
 <section class="pagehead">
   <div class="wrap">
     <h1>Get a free tree work estimate</h1>
+{% if site.estimateFormLive %}
     <p class="lede">Tell us what you need. Use the form for planned removals, trims, and stumps — photos speed things up.</p>
     <p class="urgent"><strong>Storm or hazard?</strong> Don’t use the form. <a href="{{ site.phone | tel }}">Call {{ site.phone }} now</a>.</p>
+{% else %}
+    <p class="lede">Call or text us about removals, trims, and stumps. Texting a few photos of the tree speeds things up. You can also message us with the chat button in the corner.</p>
+    <p class="urgent"><strong>Storm or hazard?</strong> <a href="{{ site.phone | tel }}">Call {{ site.phone }} now</a>.</p>
+{% endif %}
   </div>
 </section>
+{% if not site.estimateFormLive %}
+<section class="section">
+  <div class="wrap narrow contact-aside">
+    <h2>Call or text</h2>
+    <p><a class="bigphone" href="{{ site.phone | tel }}">{{ site.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    <p>{{ answers.hours }}</p>
+    <p>Tell us your city and what’s going on with the tree. We’ll set up a free on-site estimate.</p>
+    <p class="small">{{ license.chip }}</p>
+  </div>
+</section>
+{% else %}
 <section class="section">
   <div class="wrap contact-grid">
     <form class="estimate" name="estimate" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company_website" enctype="multipart/form-data">
@@ -92,3 +108,5 @@ bodyClass: contact
   });
 })();
 </script>
+
+{% endif %}

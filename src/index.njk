@@ -109,4 +109,4 @@ eleventyComputed:
   </div>
 </section>
 
-{{ ctaBand("Get a free estimate", "Call or text " + site.phone + ", or send the form. Hazards — call now. " + answers.hours + " · " + site.email) }}
+{{ ctaBand("Get a free estimate", "Call or text " + site.phone + (", or send the form." if site.estimateFormLive else ". Text photos for a faster estimate.") + " Hazards — call now. " + answers.hours + " · " + site.email) }}

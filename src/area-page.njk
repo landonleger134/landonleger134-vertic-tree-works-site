@@ -48,7 +48,7 @@ permalink: "/areas/{{ a.slug }}/"
   <div class="wrap">
     <h2>How it goes</h2>
     <ol class="steps">
-      <li><h3>Call or send the form</h3><p>Name your city and what’s going on with the tree. Photos help.</p></li>
+      <li><h3>{% if site.estimateFormLive %}Call or send the form{% else %}Call or text{% endif %}</h3><p>Name your city and what’s going on with the tree. Photos help.</p></li>
       <li><h3>On-site estimate</h3><p>We walk the tree and access and give you a written price.</p></li>
       <li><h3>Schedule and work</h3><p>We confirm the day and do the job as quoted.</p></li>
       <li><h3>Cleanup</h3><p>Wood and brush hauled per the quote. Stump grinding if you want it.</p></li>

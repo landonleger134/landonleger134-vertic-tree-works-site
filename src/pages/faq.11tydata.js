@@ -5,7 +5,7 @@ const tel = site.phone;
 
 const faq = [
   ["What areas do you serve?", `Greater Baton Rouge — East Baton Rouge, Ascension, and Livingston Parishes. Cities include Baton Rouge, Prairieville, Denham Springs, Zachary, Central, and Gonzales. Call ${tel} if you’re nearby and unsure.`],
-  ["How do I get an estimate?", `Call or text ${tel}, or use the estimate form. Photos of the tree help. Most jobs need a short on-site visit for a firm price.`],
+  ["How do I get an estimate?", `Call or text ${tel}${site.estimateFormLive ? ", or use the estimate form" : ""}. Photos of the tree help. Most jobs need a short on-site visit for a firm price.`],
   ["Is the estimate free?", "Yes. On-site estimates for typical residential jobs are free and no-obligation. If a job is unusual — a large clearing project, say — we’ll tell you up front how we’ll scope it."],
   [license.faqQuestion, license.faqAnswer],
   ["Are you insured? Can I see a COI?", `${answers.insurance} We can send it to you, your HOA, or your mortgage company.`],

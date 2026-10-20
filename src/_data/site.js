@@ -20,6 +20,9 @@ module.exports = {
   // A2P SMS consent checkboxes are all configured inside GoHighLevel, not here.
   // null = widget removed from every page.
   chatWidgetId: "6ad6acdce19e4c46e8ed4edb",
+  // Estimate form on /contact/. false = form hidden; the page asks people to
+  // call, text, or use the chat instead. Flip back to true to restore it.
+  estimateFormLive: false,
   // Estimate form → ops app (Supabase edge function). Netlify Forms keeps a backup copy.
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   // Public site: first names only — no last names, no ownership split (2026-09-29 brief).
