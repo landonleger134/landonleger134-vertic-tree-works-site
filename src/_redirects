@@ -5,3 +5,4 @@
 # Served from the ops app but kept on vertictree.com so customers see our name.
 /e/*              https://strata-exterior.netlify.app/e/:splat         200
 /contract-pdf.js  https://strata-exterior.netlify.app/contract-pdf.js  200
+/estimate-options.js  https://strata-exterior.netlify.app/estimate-options.js  200
