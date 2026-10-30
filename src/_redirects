@@ -9,3 +9,5 @@
 # Invoice payment links texted to customers (vertictree.com/pay/<code>): the
 # invoice + Pay-by-card page from the ops app, with Vertic link-preview tags.
 /pay/*            https://strata-exterior.netlify.app/pay-v/:splat     200
+# Truss sends customers back here after paying online (?c=<code>&result=…).
+/pay-return       https://strata-exterior.netlify.app/pay-v-return     200
