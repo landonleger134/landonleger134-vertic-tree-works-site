@@ -61,7 +61,8 @@ bodyClass: contact
         <div class="field"><label for="f-time">Best time to reach you <span class="opt">(optional)</span></label><input id="f-time" name="contact_time"></div>
         <div class="field"><label for="f-heard">How did you hear about us? <span class="opt">(optional)</span></label><input id="f-heard" name="heard_about"></div>
       </div>
-      <div class="field field--check"><input id="f-consent" name="consent" type="checkbox" value="yes" required><label for="f-consent">You can contact me about this estimate.</label></div>
+      <div class="field field--check"><input id="f-consent" name="consent" type="checkbox" value="yes" required><label for="f-consent">You can contact me by phone or email about this estimate.</label></div>
+      <div class="field field--check"><input id="f-sms" name="sms_consent" type="checkbox" value="yes"><label for="f-sms"><span class="opt">(Optional)</span> I agree to receive text messages from Vertic Tree Works about my estimate and appointments. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of service. See our <a href="/terms/">Terms &amp; SMS</a> and <a href="/privacy/">Privacy Policy</a>.</label></div>
       <button class="btn btn--go btn--xl" type="submit">Request Free Estimate</button>
       <p class="form-error" role="alert" hidden>Something didn’t send. Call or text <a href="{{ site.phone | tel }}">{{ site.phone }}</a> and we’ll take it from here.</p>
     </form>

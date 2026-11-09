@@ -22,7 +22,7 @@ module.exports = {
   chatWidgetId: "6ad6ba53e0d80451b7becb71",
   // Estimate form on /contact/. false = form hidden; the page asks people to
   // call, text, or use the chat instead. Flip back to true to restore it.
-  estimateFormLive: false,
+  estimateFormLive: true,
   // Estimate form → ops app (Supabase edge function). Netlify Forms keeps a backup copy.
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   // Public site: first names only — no last names, no ownership split (2026-09-29 brief).
