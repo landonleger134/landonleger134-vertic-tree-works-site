@@ -23,6 +23,11 @@ module.exports = {
   // Estimate form on /contact/. false = form hidden; the page asks people to
   // call, text, or use the chat instead. Flip back to true to restore it.
   estimateFormLive: true,
+  // GoHighLevel "Service Estimate" booking calendar (from Matthew, 2026-11-11). Shown on /contact/
+  // so people can pick their own estimate time. null = calendar removed from the site.
+  bookingEmbedUrl: "https://links.m2squareddigital.com/widget/booking/maAhdSCWLCNfHEdjK4sK",
+  bookingEmbedScript: "https://links.m2squareddigital.com/js/form_embed.js",
+  bookingUrl: "https://api.leadconnectorhq.com/widget/bookings/service-estimate-pcoin",
   // Estimate form → ops app (Supabase edge function). Netlify Forms keeps a backup copy.
   leadEndpoint: "https://alxunsqvaujknsnsgoab.supabase.co/functions/v1/vertic-lead-capture",
   // Public site: first names only — no last names, no ownership split (2026-09-29 brief).

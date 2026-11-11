@@ -236,3 +236,5 @@ input:focus,select:focus,textarea:focus{border-color:var(--char);outline:none;bo
 .review footer{font-size:.9rem;color:var(--muted,#6b6357)}
 .review footer a,.review p a{color:inherit}
 .reviews__attr{margin-top:1rem;font-size:.9rem;color:var(--muted,#6b6357)}
+/* Booking calendar on /contact/ — clear the sticky header when jumping to #book */
+#book{scroll-margin-top:9rem}

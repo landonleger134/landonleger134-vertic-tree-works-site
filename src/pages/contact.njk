@@ -12,9 +12,11 @@ bodyClass: contact
 {% if site.estimateFormLive %}
     <p class="lede">Tell us what you need. Use the form for planned removals, trims, and stumps — photos speed things up.</p>
     <p class="urgent"><strong>Storm or hazard?</strong> Don’t use the form. <a href="{{ site.phone | tel }}">Call {{ site.phone }} now</a>.</p>
+{% if site.bookingEmbedUrl %}    <p><a class="btn btn--ghost" href="#book">📅 Or pick a time online</a></p>{% endif %}
 {% else %}
     <p class="lede">Call or text us about removals, trims, and stumps. Texting a few photos of the tree speeds things up. You can also message us with the chat button in the corner.</p>
     <p class="urgent"><strong>Storm or hazard?</strong> <a href="{{ site.phone | tel }}">Call {{ site.phone }} now</a>.</p>
+{% if site.bookingEmbedUrl %}    <p><a class="btn btn--ghost" href="#book">📅 Book a time online</a></p>{% endif %}
 {% endif %}
   </div>
 </section>
@@ -70,6 +72,7 @@ bodyClass: contact
       <h2>Prefer to talk?</h2>
       <p><a class="bigphone" href="{{ site.phone | tel }}">{{ site.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
       <p>{{ answers.hours }}</p>
+{% if site.bookingEmbedUrl %}      <p><a href="#book">📅 Or book an estimate time online</a></p>{% endif %}
       <p class="small">{{ license.chip }}</p>
     </aside>
   </div>
@@ -110,4 +113,15 @@ bodyClass: contact
 })();
 </script>
 
+{% endif %}
+{% if site.bookingEmbedUrl %}
+<section class="section booking" id="book">
+  <div class="wrap narrow">
+    <h2>Book your free estimate</h2>
+    <p>Pick a day and time that works for you and we’ll come out to look at the tree. Planned work only — for storm damage or a tree on a house, <a href="{{ site.phone | tel }}">call {{ site.phone }}</a>.</p>
+    <iframe src="{{ site.bookingEmbedUrl }}" title="Book a free tree estimate" id="vertic-booking" loading="lazy" scrolling="no" style="width:100%;min-height:720px;border:none;overflow:hidden;"></iframe>
+    <script src="{{ site.bookingEmbedScript }}" type="text/javascript" defer></script>
+    {% if site.bookingUrl %}<p class="small">Calendar not loading? <a href="{{ site.bookingUrl }}" target="_blank" rel="noopener">Open the booking page</a> or call {{ site.phone }}.</p>{% endif %}
+  </div>
+</section>
 {% endif %}
